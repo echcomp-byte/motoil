@@ -1,0 +1,50 @@
+{
+  "common": {
+    "appName": "מוטו IL",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "loading": "טוען...",
+    "comingSoon": "בקרוב",
+    "signOut": "התנתק"
+  },
+  "auth": {
+    "login": {
+      "title": "התחברות",
+      "email": "אימייל",
+      "password": "סיסמה",
+      "submit": "התחבר",
+      "noAccount": "אין לי חשבון? הירשם"
+    },
+    "signup": {
+      "title": "הרשמה",
+      "email": "אימייל",
+      "password": "סיסמה",
+      "passwordHint": "סיסמה (לפחות 6 תווים)",
+      "submit": "הירשם",
+      "hasAccount": "כבר יש לי חשבון? התחבר",
+      "checkEmail": "נשלח אליך מייל אישור. אנא לחץ על הקישור במייל ואז התחבר."
+    },
+    "errors": {
+      "invalidEmail": "כתובת אימייל לא תקינה",
+      "shortPassword": "הסיסמה חייבת להכיל לפחות 6 תווים",
+      "invalidInput": "הזנה לא תקינה",
+      "wrongCredentials": "אימייל או סיסמה שגויים",
+      "emailNotConfirmed": "אנא אשרו את כתובת המייל לפני התחברות",
+      "emailTaken": "כתובת המייל כבר רשומה. נסו להתחבר",
+      "rateLimit": "יותר מדי ניסיונות. נסו שוב בעוד דקה",
+      "network": "אין חיבור לאינטרנט. נסו שוב כשתחזרו לרשת",
+      "generic": "אירעה שגיאה. נסו שוב"
+    }
+  },
+  "tabs": {
+    "profile": "כרטיס חירום",
+    "bikes": "אופנועים",
+    "qr": "קוד QR",
+    "settings": "הגדרות"
+  },
+  "placeholders": {
+    "bikesSoon": "בקרוב — Dev A",
+    "qrSoon": "בקרוב — Dev C",
+    "settingsSoon": "בקרוב — Dev D"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "common": {
+    "appName": "MotoIL",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "comingSoon": "Coming soon",
+    "signOut": "Sign out"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "noAccount": "No account? Sign up"
+    },
+    "signup": {
+      "title": "Sign up",
+      "email": "Email",
+      "password": "Password",
+      "passwordHint": "Password (at least 6 characters)",
+      "submit": "Sign up",
+      "hasAccount": "Already have an account? Sign in",
+      "checkEmail": "A confirmation email was sent. Please click the link in the email, then sign in."
+    },
+    "errors": {
+      "invalidEmail": "Invalid email address",
+      "shortPassword": "Password must be at least 6 characters",
+      "invalidInput": "Invalid input",
+      "wrongCredentials": "Wrong email or password",
+      "emailNotConfirmed": "Please confirm your email before signing in",
+      "emailTaken": "Email is already registered. Try signing in",
+      "rateLimit": "Too many attempts. Try again in a minute",
+      "network": "No internet connection. Try again when back online",
+      "generic": "Something went wrong. Try again"
+    }
+  },
+  "tabs": {
+    "profile": "Emergency card",
+    "bikes": "Bikes",
+    "qr": "QR code",
+    "settings": "Settings"
+  },
+  "placeholders": {
+    "bikesSoon": "Coming soon — Dev A",
+    "qrSoon": "Coming soon — Dev C",
+    "settingsSoon": "Coming soon — Dev D"
+  }
+}

@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   ActivityIndicator,
   KeyboardAvoidingView,
@@ -13,8 +14,11 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "@/features/auth/useAuth";
 import { credentialsSchema } from "@/features/auth/schema";
+import { useTheme } from "@/lib/theme";
 
 export default function SignupScreen() {
+  const { t } = useTranslation();
+  const { colors } = useTheme();
   const { signUp } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,34 +31,37 @@ export default function SignupScreen() {
     setInfo(null);
     const parsed = credentialsSchema.safeParse({ email, password });
     if (!parsed.success) {
-      setError(parsed.error.issues[0]?.message ?? "הזנה לא תקינה");
+      setError(parsed.error.issues[0]?.message ?? "auth.errors.invalidInput");
       return;
     }
     setSubmitting(true);
-    const { error: authError } = await signUp(parsed.data.email, parsed.data.password);
+    const { errorKey } = await signUp(parsed.data.email, parsed.data.password);
     setSubmitting(false);
-    if (authError) {
-      setError(authError);
+    if (errorKey) {
+      setError(errorKey);
       return;
     }
-    setInfo("נשלח אליך מייל אישור. אנא לחץ על הקישור במייל ואז התחבר.");
+    setInfo("auth.signup.checkEmail");
     setEmail("");
     setPassword("");
   }
 
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View style={styles.container}>
-          <Text style={styles.title}>הרשמה</Text>
+          <Text style={[styles.title, { color: colors.text }]}>{t("auth.signup.title")}</Text>
 
           <TextInput
-            style={styles.input}
-            placeholder="אימייל"
-            placeholderTextColor="#999"
+            style={[
+              styles.input,
+              { borderColor: colors.border, color: colors.text, backgroundColor: colors.surface },
+            ]}
+            placeholder={t("auth.signup.email")}
+            placeholderTextColor={colors.textMuted}
             autoCapitalize="none"
             keyboardType="email-address"
             autoComplete="email"
@@ -63,9 +70,12 @@ export default function SignupScreen() {
             editable={!submitting}
           />
           <TextInput
-            style={styles.input}
-            placeholder="סיסמה (לפחות 6 תווים)"
-            placeholderTextColor="#999"
+            style={[
+              styles.input,
+              { borderColor: colors.border, color: colors.text, backgroundColor: colors.surface },
+            ]}
+            placeholder={t("auth.signup.passwordHint")}
+            placeholderTextColor={colors.textMuted}
             secureTextEntry
             autoComplete="new-password"
             value={password}
@@ -73,23 +83,29 @@ export default function SignupScreen() {
             editable={!submitting}
           />
 
-          {error ? <Text style={styles.error}>{error}</Text> : null}
-          {info ? <Text style={styles.info}>{info}</Text> : null}
+          {error ? <Text style={[styles.error, { color: colors.danger }]}>{t(error)}</Text> : null}
+          {info ? <Text style={[styles.info, { color: colors.success }]}>{t(info)}</Text> : null}
 
           <Pressable
-            style={[styles.button, submitting && styles.buttonDisabled]}
+            style={[
+              styles.button,
+              { backgroundColor: colors.primary },
+              submitting && styles.buttonDisabled,
+            ]}
             onPress={onSubmit}
             disabled={submitting}
           >
             {submitting ? (
-              <ActivityIndicator color="#fff" />
+              <ActivityIndicator color={colors.primaryText} />
             ) : (
-              <Text style={styles.buttonText}>הירשם</Text>
+              <Text style={[styles.buttonText, { color: colors.primaryText }]}>
+                {t("auth.signup.submit")}
+              </Text>
             )}
           </Pressable>
 
-          <Link href="/(auth)/login" style={styles.link}>
-            כבר יש לי חשבון? התחבר
+          <Link href="/(auth)/login" style={[styles.link, { color: colors.primary }]}>
+            {t("auth.signup.hasAccount")}
           </Link>
         </View>
       </KeyboardAvoidingView>
@@ -98,29 +114,28 @@ export default function SignupScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#fff" },
+  safe: { flex: 1 },
   flex: { flex: 1 },
   container: { flex: 1, padding: 24, justifyContent: "center", gap: 12 },
   title: { fontSize: 28, fontWeight: "700", textAlign: "center", marginBottom: 12 },
   input: {
     borderWidth: 1,
-    borderColor: "#ddd",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 14,
     fontSize: 16,
     textAlign: "right",
+    writingDirection: "rtl",
   },
-  error: { color: "#c0392b", fontSize: 14, textAlign: "center" },
-  info: { color: "#15803d", fontSize: 14, textAlign: "center" },
+  error: { fontSize: 14, textAlign: "center" },
+  info: { fontSize: 14, textAlign: "center" },
   button: {
-    backgroundColor: "#1f2937",
     borderRadius: 8,
     paddingVertical: 14,
     alignItems: "center",
     marginTop: 8,
   },
   buttonDisabled: { opacity: 0.6 },
-  buttonText: { color: "#fff", fontSize: 16, fontWeight: "600" },
-  link: { textAlign: "center", color: "#2563eb", marginTop: 12, fontSize: 14 },
+  buttonText: { fontSize: 16, fontWeight: "600" },
+  link: { textAlign: "center", marginTop: 12, fontSize: 14 },
 });

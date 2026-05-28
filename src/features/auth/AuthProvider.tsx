@@ -2,7 +2,7 @@ import type { Session, User } from "@supabase/supabase-js";
 import { createContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { supabase } from "@/lib/supabase";
 
-type AuthResult = { error: string | null };
+type AuthResult = { errorKey: string | null };
 
 type AuthContextValue = {
   session: Session | null;
@@ -17,18 +17,17 @@ export const AuthContext = createContext<AuthContextValue | undefined>(undefined
 
 const EMAIL_REDIRECT = "motoil://auth-callback";
 
-function translateAuthError(message: string | undefined): string {
-  if (!message) return "אירעה שגיאה לא צפויה";
+// Map Supabase error messages to i18n keys (resolved by the screen via t()).
+function mapAuthErrorKey(message: string | undefined): string {
+  if (!message) return "auth.errors.generic";
   const m = message.toLowerCase();
-  if (m.includes("invalid login credentials")) return "אימייל או סיסמה שגויים";
-  if (m.includes("email not confirmed")) return "אנא אשרו את כתובת המייל לפני התחברות";
-  if (m.includes("user already registered")) return "כתובת המייל כבר רשומה. נסו להתחבר";
-  if (m.includes("password should be at least")) return "הסיסמה קצרה מדי (לפחות 6 תווים)";
-  if (m.includes("rate limit") || m.includes("too many"))
-    return "יותר מדי ניסיונות. נסו שוב בעוד דקה";
-  if (m.includes("network") || m.includes("fetch"))
-    return "אין חיבור לאינטרנט. נסו שוב כשתחזרו לרשת";
-  return message;
+  if (m.includes("invalid login credentials")) return "auth.errors.wrongCredentials";
+  if (m.includes("email not confirmed")) return "auth.errors.emailNotConfirmed";
+  if (m.includes("user already registered")) return "auth.errors.emailTaken";
+  if (m.includes("password should be at least")) return "auth.errors.shortPassword";
+  if (m.includes("rate limit") || m.includes("too many")) return "auth.errors.rateLimit";
+  if (m.includes("network") || m.includes("fetch")) return "auth.errors.network";
+  return "auth.errors.generic";
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -65,15 +64,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           password,
           options: { emailRedirectTo: EMAIL_REDIRECT },
         });
-        return { error: error ? translateAuthError(error.message) : null };
+        return { errorKey: error ? mapAuthErrorKey(error.message) : null };
       },
       signIn: async (email, password) => {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
-        return { error: error ? translateAuthError(error.message) : null };
+        return { errorKey: error ? mapAuthErrorKey(error.message) : null };
       },
       signOut: async () => {
         const { error } = await supabase.auth.signOut();
-        return { error: error ? translateAuthError(error.message) : null };
+        return { errorKey: error ? mapAuthErrorKey(error.message) : null };
       },
     }),
     [session, loading],
