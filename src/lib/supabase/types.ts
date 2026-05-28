@@ -1,10 +1,12 @@
-// Temporary hand-rolled Database type — replace with output of:
-//   npx supabase gen types typescript --linked > src/lib/supabase/types.ts
-// Schema source: supabase/migrations (RLS enforced — clients only see their own rows).
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[];
 
-export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
-
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       profiles: {
@@ -17,8 +19,9 @@ export interface Database {
           medications: string[] | null;
           conditions: string[] | null;
           kupat_holim: string | null;
-          created_at: string;
-          updated_at: string;
+          locale: string | null;
+          created_at: string | null;
+          updated_at: string | null;
         };
         Insert: {
           id: string;
@@ -29,11 +32,32 @@ export interface Database {
           medications?: string[] | null;
           conditions?: string[] | null;
           kupat_holim?: string | null;
-          created_at?: string;
-          updated_at?: string;
+          locale?: string | null;
+          created_at?: string | null;
+          updated_at?: string | null;
         };
-        Update: Partial<Database["public"]["Tables"]["profiles"]["Insert"]>;
-        Relationships: [];
+        Update: {
+          id?: string;
+          full_name?: string | null;
+          teudat_zehut?: string | null;
+          blood_type?: string | null;
+          allergies?: string[] | null;
+          medications?: string[] | null;
+          conditions?: string[] | null;
+          kupat_holim?: string | null;
+          locale?: string | null;
+          created_at?: string | null;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "profiles_id_fkey";
+            columns: ["id"];
+            isOneToOne: true;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
       };
       emergency_contacts: {
         Row: {
@@ -42,7 +66,7 @@ export interface Database {
           name: string;
           phone: string;
           relation: string | null;
-          created_at: string;
+          created_at: string | null;
         };
         Insert: {
           id?: string;
@@ -50,10 +74,25 @@ export interface Database {
           name: string;
           phone: string;
           relation?: string | null;
-          created_at?: string;
+          created_at?: string | null;
         };
-        Update: Partial<Database["public"]["Tables"]["emergency_contacts"]["Insert"]>;
-        Relationships: [];
+        Update: {
+          id?: string;
+          user_id?: string;
+          name?: string;
+          phone?: string;
+          relation?: string | null;
+          created_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "emergency_contacts_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
       };
       bikes: {
         Row: {
@@ -63,7 +102,7 @@ export interface Database {
           model: string;
           year: number | null;
           license_plate: string | null;
-          created_at: string;
+          created_at: string | null;
         };
         Insert: {
           id?: string;
@@ -72,10 +111,26 @@ export interface Database {
           model: string;
           year?: number | null;
           license_plate?: string | null;
-          created_at?: string;
+          created_at?: string | null;
         };
-        Update: Partial<Database["public"]["Tables"]["bikes"]["Insert"]>;
-        Relationships: [];
+        Update: {
+          id?: string;
+          user_id?: string;
+          make?: string;
+          model?: string;
+          year?: number | null;
+          license_plate?: string | null;
+          created_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "bikes_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
       };
       public_tokens: {
         Row: {
@@ -83,17 +138,34 @@ export interface Database {
           user_id: string;
           token: string;
           expires_at: string | null;
-          created_at: string;
+          revoked_at: string | null;
+          created_at: string | null;
         };
         Insert: {
           id?: string;
           user_id: string;
           token?: string;
           expires_at?: string | null;
-          created_at?: string;
+          revoked_at?: string | null;
+          created_at?: string | null;
         };
-        Update: Partial<Database["public"]["Tables"]["public_tokens"]["Insert"]>;
-        Relationships: [];
+        Update: {
+          id?: string;
+          user_id?: string;
+          token?: string;
+          expires_at?: string | null;
+          revoked_at?: string | null;
+          created_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "public_tokens_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          }
+        ];
       };
     };
     Views: Record<string, never>;
@@ -101,4 +173,10 @@ export interface Database {
     Enums: Record<string, never>;
     CompositeTypes: Record<string, never>;
   };
-}
+};
+
+export const KUPAT_HOLIM_OPTIONS = ["clalit", "maccabi", "meuhedet", "leumit"] as const;
+export type KupatHolim = (typeof KUPAT_HOLIM_OPTIONS)[number];
+
+export const BLOOD_TYPE_OPTIONS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] as const;
+export type BloodType = (typeof BLOOD_TYPE_OPTIONS)[number];
