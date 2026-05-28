@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.echcomp.motoil"
+      "bundleIdentifier": "com.echcomp.motoil",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.echcomp.motoil",
@@ -32,6 +35,18 @@
     ],
     "experiments": {
       "typedRoutes": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1ed69d47-6029-4877-a79d-f4509051a729"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1ed69d47-6029-4877-a79d-f4509051a729"
     }
   }
 }
