@@ -24,10 +24,38 @@ Go to **Settings → Secrets and variables → Actions → New repository secret
 | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | (from GCP) | same |
 | `EXPO_TOKEN` | (from `npx eas whoami` → `eas login` → expo.dev → access token) | `eas build` / `eas submit` in CI |
 | `SUPABASE_ACCESS_TOKEN` | (from `npx supabase login` → supabase.com → account → access tokens) | future workflows that run `supabase db push` or `supabase gen types` automatically |
+| `EXPO_PUBLIC_POSTHOG_KEY` | (from PostHog Dashboard → Project Settings → Project API Key) | Phase 1 analytics — `posthog-react-native` reads this at bundle time |
+| `EXPO_PUBLIC_POSTHOG_HOST` | `https://eu.i.posthog.com` (EU cloud — matches Supabase EU residency) | PostHog endpoint; EU host avoids cross-region data transfer |
+| `EXPO_PUBLIC_SENTRY_DSN` | (from Sentry Dashboard → Settings → Projects → motoil → Client Keys (DSN)) | Phase 1 crash reporting — `@sentry/react-native` reads this at init |
+| `SENTRY_AUTH_TOKEN` | (from Sentry → Settings → Account → API → Auth Tokens, scope `project:releases`) | sourcemap upload during `eas build`; server-side only (NOT prefixed `EXPO_PUBLIC_`) |
+| `SENTRY_ORG` | (your Sentry org slug — visible in dashboard URL) | sourcemap upload target |
+| `SENTRY_PROJECT` | `motoil` (suggested — confirm at project creation) | sourcemap upload target |
 
-The first four follow the **EXPO_PUBLIC_*** convention because anything Expo will read them at bundle time the same way it would on a developer machine.
+The first four follow the **EXPO_PUBLIC_*** convention because anything Expo will read them at bundle time the same way it would on a developer machine. Same applies to `EXPO_PUBLIC_POSTHOG_*` and `EXPO_PUBLIC_SENTRY_DSN` — they are client-bundled by design (PostHog/Sentry DSNs are public-by-design write-only keys).
 
-The last two (`EXPO_TOKEN`, `SUPABASE_ACCESS_TOKEN`) are **NOT** prefixed with `EXPO_PUBLIC_` — they are server-side only, never embedded in the client bundle.
+`EXPO_TOKEN`, `SUPABASE_ACCESS_TOKEN`, and `SENTRY_AUTH_TOKEN` are **NOT** prefixed with `EXPO_PUBLIC_` — they are server-side only, never embedded in the client bundle.
+
+---
+
+## Obtaining PostHog + Sentry keys (Dev D, Phase 1)
+
+**PostHog (free tier — 1M events/month):**
+1. Sign up at https://eu.posthog.com (EU cloud — matches Supabase `eu-west-3`).
+2. Create a project named `motoil`.
+3. Project Settings → Project API Key → copy into local `.env` as `EXPO_PUBLIC_POSTHOG_KEY=phc_…`.
+4. Add `EXPO_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com` to `.env`.
+5. Add both to GitHub Actions secrets per the table above.
+6. Update `.env.example` with the two keys (empty values).
+
+**Sentry (free tier — 5k errors/month, 10k performance units):**
+1. Sign up at https://sentry.io.
+2. Create a project: platform = `React Native`, name = `motoil`.
+3. Settings → Projects → motoil → Client Keys (DSN) → copy DSN into `.env` as `EXPO_PUBLIC_SENTRY_DSN=https://…@…ingest.sentry.io/…`.
+4. Settings → Account → API → Auth Tokens → create token with scope `project:releases` → copy as `SENTRY_AUTH_TOKEN` (GitHub Actions secret only — server-side).
+5. Note org slug + project slug for `SENTRY_ORG` / `SENTRY_PROJECT`.
+6. Update `.env.example` with `EXPO_PUBLIC_SENTRY_DSN=` (empty value).
+
+Both services have free tiers sized comfortably for our 50-tester rollout. Re-evaluate when MAU > 5k.
 
 ---
 

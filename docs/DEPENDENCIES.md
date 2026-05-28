@@ -66,6 +66,20 @@ If you add or remove a dependency, **update this file in the same PR**.
 
 ---
 
+## Planned additions — Phase 1 (Dev D)
+
+These are **announced but not yet installed**. Slack `#motoil` notice posted 2026-05-28; PRs land after Devs A/B/C wrap MVP (Day 15) to avoid lockfile churn during their feature work.
+
+| package | version target | role | risk |
+|---|---|---|---|
+| `react-native-reanimated` | `~4.2.0` (Expo SDK 56 aligned — install via `npx expo install`) | onboarding screen transitions + worklet-driven animations | needs `react-native-reanimated/plugin` added to `babel.config.js` (or `app.config.ts` if we migrate); requires native rebuild — every Dev runs `npx expo prebuild --clean` once |
+| `posthog-react-native` | `^4.x` | product analytics (events listed in `src/lib/analytics/events.ts`) | reads `EXPO_PUBLIC_POSTHOG_KEY` at bundle time; no-op shim already in `src/lib/analytics/` lets other Devs call `track()` before this lands |
+| `@sentry/react-native` | `^7.x` | crash + error reporting | requires `@sentry/wizard` one-time setup; sourcemap upload needs `SENTRY_AUTH_TOKEN` (see `docs/CI_SECRETS.md`); auto-instrumented patches `_layout.tsx` — coordinate with PM before merging |
+
+**Why not now:** package.json is a SHARED file (HANDOFF section E). Devs A/B/C are building on the current lockfile through Day 15. Bundling the three adds into one PR after their freeze minimizes merge conflicts.
+
+---
+
 ## Adding a dependency — checklist
 
 1. Discuss in `#motoil` first if the package is non-trivial (auth, native code, large bundle).
