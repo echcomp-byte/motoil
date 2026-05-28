@@ -13,7 +13,9 @@
       "email": "אימייל",
       "password": "סיסמה",
       "submit": "התחבר",
-      "noAccount": "אין לי חשבון? הירשם"
+      "noAccount": "אין לי חשבון? הירשם",
+      "or": "או",
+      "withGoogle": "המשך עם Google"
     },
     "signup": {
       "title": "הרשמה",
@@ -33,7 +35,15 @@
       "emailTaken": "כתובת המייל כבר רשומה. נסו להתחבר",
       "rateLimit": "יותר מדי ניסיונות. נסו שוב בעוד דקה",
       "network": "אין חיבור לאינטרנט. נסו שוב כשתחזרו לרשת",
-      "generic": "אירעה שגיאה. נסו שוב"
+      "generic": "אירעה שגיאה. נסו שוב",
+      "appleUnavailable": "התחברות עם Apple לא זמינה במכשיר זה",
+      "appleNoToken": "Apple לא החזיר token תקין. נסו שוב",
+      "appleFailed": "ההתחברות עם Apple נכשלה. נסו שוב",
+      "googleNotConfigured": "התחברות עם Google אינה מוגדרת. פנו לתמיכה",
+      "googleNoToken": "Google לא החזיר token תקין. נסו שוב",
+      "googleInProgress": "התחברות עם Google כבר בתהליך",
+      "googlePlayServices": "נדרשים שירותי Google Play. עדכנו את המכשיר",
+      "googleFailed": "ההתחברות עם Google נכשלה. נסו שוב"
     }
   },
   "tabs": {

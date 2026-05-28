@@ -11,6 +11,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.echcomp.motoil",
+      "usesAppleSignIn": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -32,7 +33,8 @@
     "plugins": [
       "expo-router",
       "expo-status-bar",
-      "expo-localization"
+      "expo-localization",
+      "expo-apple-authentication"
     ],
     "experiments": {
       "typedRoutes": false

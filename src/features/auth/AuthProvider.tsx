@@ -1,6 +1,8 @@
 import type { Session, User } from "@supabase/supabase-js";
 import { createContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { supabase } from "@/lib/supabase";
+import { signInWithApple } from "./providers/apple";
+import { signInWithGoogle } from "./providers/google";
 
 type AuthResult = { errorKey: string | null };
 
@@ -10,6 +12,8 @@ type AuthContextValue = {
   loading: boolean;
   signUp: (email: string, password: string) => Promise<AuthResult>;
   signIn: (email: string, password: string) => Promise<AuthResult>;
+  signInWithApple: () => Promise<AuthResult>;
+  signInWithGoogle: () => Promise<AuthResult>;
   signOut: () => Promise<AuthResult>;
 };
 
@@ -70,6 +74,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         return { errorKey: error ? mapAuthErrorKey(error.message) : null };
       },
+      signInWithApple,
+      signInWithGoogle,
       signOut: async () => {
         const { error } = await supabase.auth.signOut();
         return { errorKey: error ? mapAuthErrorKey(error.message) : null };

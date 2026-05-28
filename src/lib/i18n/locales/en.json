@@ -13,7 +13,9 @@
       "email": "Email",
       "password": "Password",
       "submit": "Sign in",
-      "noAccount": "No account? Sign up"
+      "noAccount": "No account? Sign up",
+      "or": "or",
+      "withGoogle": "Continue with Google"
     },
     "signup": {
       "title": "Sign up",
@@ -33,7 +35,15 @@
       "emailTaken": "Email is already registered. Try signing in",
       "rateLimit": "Too many attempts. Try again in a minute",
       "network": "No internet connection. Try again when back online",
-      "generic": "Something went wrong. Try again"
+      "generic": "Something went wrong. Try again",
+      "appleUnavailable": "Sign in with Apple isn't available on this device",
+      "appleNoToken": "Apple didn't return a valid token. Try again",
+      "appleFailed": "Sign in with Apple failed. Try again",
+      "googleNotConfigured": "Sign in with Google isn't configured. Contact support",
+      "googleNoToken": "Google didn't return a valid token. Try again",
+      "googleInProgress": "Google sign-in already in progress",
+      "googlePlayServices": "Google Play Services required. Please update your device",
+      "googleFailed": "Sign in with Google failed. Try again"
     }
   },
   "tabs": {
