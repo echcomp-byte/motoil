@@ -52,6 +52,8 @@ This is the document you should read **before touching code**. It describes what
 | 5 | Apple Sign-In credentials | PM | when Apple Developer unlock clears | run `eas credentials configure --platform ios`, then upload the `.p8` key + key ID + team ID to Supabase Dashboard → Auth → Providers → Apple |
 | 6 | Google Sign-In credentials | PM | now | create iOS + Web OAuth clients in GCP, put both client IDs in local `.env` + GitHub Actions secrets (`docs/CI_SECRETS.md`), enable Google provider in Supabase Dashboard with the Web client ID + secret |
 | 7 | `(tabs)` route on signed-in users initially lands on `/(tabs)/index` (profile) — works, but no animation/onboarding | Dev D | onboarding feature | will be replaced by the onboarding flow Dev D builds |
+| 8 | **Branch protection on `main` NOT enforced** | PM | before Phase 1 starts | Free GitHub plan blocks branch-protection on private repos. Options: (a) upgrade `echcomp-byte` to GitHub Pro (~$4/mo) and run `gh api repos/echcomp-byte/motoil/branches/main/protection -X PUT ...` (see `docs/CI_SECRETS.md`); (b) make the repo public; (c) skip and rely on team discipline (NOT recommended — main is currently writable by everyone with push access). |
+| 9 | `actions/checkout@v4` + `actions/setup-node@v4` use Node.js 20 (deprecated on GitHub runners after 2026-06-02) | Dev D / anyone | **2026-06-02** | bump to `@v5` (Node 24-ready) in `.github/workflows/ci.yml` |
 
 None of these block Phase 1 from starting.
 
