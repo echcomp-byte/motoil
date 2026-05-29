@@ -153,11 +153,19 @@ async function loadProfile(userId: string): Promise<ProfileResponse> {
       .from("emergency_contacts")
       .select("name, phone, relation")
       .eq("user_id", userId)
+      // priority: lower = called first (per migration 0002). created_at
+      // breaks ties so the order is deterministic even when the user
+      // hasn't reordered yet (all priorities default to 0).
+      .order("priority", { ascending: true })
       .order("created_at", { ascending: true }),
     supabase
       .from("bikes")
       .select("make, model, year, license_plate")
       .eq("user_id", userId)
+      // is_primary DESC pulls the user-marked primary first (unique per
+      // user — partial index in migration 0002 guarantees ≤1). created_at
+      // is the fallback when no primary is set (e.g. new accounts).
+      .order("is_primary", { ascending: false })
       .order("created_at", { ascending: true })
       .limit(1)
       .maybeSingle(),

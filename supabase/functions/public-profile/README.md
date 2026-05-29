@@ -46,7 +46,7 @@ npx supabase functions deploy public-profile --project-ref <ref>
 ```bash
 npx supabase start
 npx supabase functions serve public-profile --env-file ./supabase/.env.local
-curl "http://localhost:54321/functions/v1/public-profile?token=11111111-2222-3333-4444-555555555555"
+curl "http://localhost:54321/functions/v1/public-profile?token=00000000-0000-0000-0000-000000000401"
 ```
 
 Seed the test data first — see `docs/seeds/dev_c_seed.sql`.
