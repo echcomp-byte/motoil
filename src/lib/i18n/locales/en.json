@@ -54,7 +54,6 @@
   },
   "placeholders": {
     "bikesSoon": "Coming soon — Dev A",
-    "qrSoon": "Coming soon — Dev C",
     "settingsSoon": "Coming soon — Dev D"
   },
   "profile": {
@@ -89,6 +88,23 @@
       "arrayTooLong": "Up to 6 items",
       "loadFailed": "Failed to load profile. Try again",
       "saveFailed": "Save failed. Try again"
+    }
+  },
+  "qr": {
+    "title": "Emergency QR code",
+    "subtitle": "Emergency responders scan this to see your medical information",
+    "loading": "Loading code…",
+    "rotate": {
+      "button": "Rotate code",
+      "title": "Rotate QR code",
+      "body": "Any existing sticker on your helmet or bike will stop working immediately. You will need to print a new sticker with the new code.",
+      "confirm": "Rotate",
+      "cancel": "Cancel"
+    },
+    "error": {
+      "title": "Failed to load code",
+      "body": "Check your network and try again.",
+      "retry": "Retry"
     }
   }
 }

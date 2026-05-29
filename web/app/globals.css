@@ -1,0 +1,45 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f7f7f8;
+  --text: #1a1a1a;
+  --text-muted: #5b6066;
+  --border: #e3e5e8;
+  --primary: #e53935;
+  --critical: #b71c1c;
+  --ok: #2e7d32;
+  --warn: #ef6c00;
+  color-scheme: light;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Heebo", "Assistant",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body { min-height: 100dvh; }
+
+a { color: var(--primary); }
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Print stylesheet — A4 portrait, single-page rescue card.
+   Strips navigation, language toggle, and links; emphasises legibility. */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  :root { --bg: #ffffff; --text: #000000; }
+  body { background: #ffffff; color: #000000; }
+  .no-print { display: none !important; }
+  a { color: #000000; text-decoration: none; }
+}
