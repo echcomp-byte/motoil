@@ -132,6 +132,18 @@
     "logout": "Sign out",
     "logoutConfirmTitle": "Sign out?",
     "logoutConfirmBody": "You can sign back in any time.",
+    "delete": {
+      "label": "Delete my account",
+      "confirmTitle": "Delete account?",
+      "confirmBody": "This will permanently delete your card, contacts, bikes, and QR codes. This cannot be undone.",
+      "confirmCta": "Delete account",
+      "successTitle": "Account deleted",
+      "successBody": "Thanks for riding with us. All your data has been removed.",
+      "errors": {
+        "notAvailable": "Account deletion is temporarily unavailable. Please email support@motoil.app.",
+        "generic": "We couldn't delete the account. Please try again or contact support."
+      }
+    },
     "version": "Version",
     "build": "Build"
   },

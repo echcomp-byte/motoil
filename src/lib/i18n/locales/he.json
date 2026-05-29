@@ -132,6 +132,18 @@
     "logout": "התנתק",
     "logoutConfirmTitle": "להתנתק?",
     "logoutConfirmBody": "תוכל להיכנס שוב בכל עת.",
+    "delete": {
+      "label": "מחק את החשבון שלי",
+      "confirmTitle": "למחוק את החשבון?",
+      "confirmBody": "פעולה זו תמחק לצמיתות את הכרטיס שלך, רשימת אנשי הקשר, האופנועים וקודי ה-QR. אי אפשר לשחזר.",
+      "confirmCta": "מחק חשבון",
+      "successTitle": "החשבון נמחק",
+      "successBody": "תודה שהיית איתנו. כל המידע שלך הוסר מהמערכת.",
+      "errors": {
+        "notAvailable": "המחיקה לא זמינה כרגע. אנא פנה לתמיכה ב-support@motoil.app.",
+        "generic": "לא הצלחנו למחוק את החשבון. נסו שוב או פנו לתמיכה."
+      }
+    },
     "version": "גרסה",
     "build": "Build"
   },

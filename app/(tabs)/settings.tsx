@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "@/features/auth/useAuth";
 import { useHasSeenOnboarding } from "@/features/onboarding/storage";
 import { SettingsRow } from "@/features/settings/components/SettingsRow";
+import { deleteMyAccount } from "@/features/settings/deleteAccount";
 import i18nInstance from "@/lib/i18n";
 import { ensureRTL } from "@/lib/i18n/rtl";
 import { setStoredLanguage, type Language } from "@/lib/i18n/storage";
@@ -35,6 +36,28 @@ export default function SettingsTab() {
           const { errorKey } = await signOut();
           if (errorKey) Alert.alert(t(errorKey));
           // RootGuard redirects to /(auth)/login on session === null
+        },
+      },
+    ]);
+  }
+
+  function onPressDeleteAccount() {
+    Alert.alert(t("settings.delete.confirmTitle"), t("settings.delete.confirmBody"), [
+      { text: t("common.cancel"), style: "cancel" },
+      {
+        text: t("settings.delete.confirmCta"),
+        style: "destructive",
+        onPress: async () => {
+          const { errorKey } = await deleteMyAccount();
+          if (errorKey) {
+            Alert.alert(t(errorKey));
+            return;
+          }
+          // Sign out so RootGuard sends the now-orphaned session to /(auth)/login,
+          // then surface a success toast. Order matters: showing the alert before
+          // signOut keeps the message visible during the redirect animation.
+          Alert.alert(t("settings.delete.successTitle"), t("settings.delete.successBody"));
+          await signOut();
         },
       },
     ]);
@@ -114,7 +137,12 @@ export default function SettingsTab() {
         </Section>
 
         <Section title={t("settings.sections.account")} color={colors.textMuted}>
-          <SettingsRow label={t("settings.logout")} destructive onPress={onPressLogout} />
+          <SettingsRow label={t("settings.logout")} onPress={onPressLogout} />
+          <SettingsRow
+            label={t("settings.delete.label")}
+            destructive
+            onPress={onPressDeleteAccount}
+          />
         </Section>
 
         <Section title={t("settings.sections.about")} color={colors.textMuted}>
