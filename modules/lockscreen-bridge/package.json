@@ -1,0 +1,8 @@
+{
+  "name": "lockscreen-bridge",
+  "version": "0.0.1",
+  "private": true,
+  "description": "MotoIL Expo config plugin: App Group entitlement (iOS) + AppWidget receiver block (Android) for the lockscreen ICE widget.",
+  "main": "app.plugin.js",
+  "license": "UNLICENSED"
+}
