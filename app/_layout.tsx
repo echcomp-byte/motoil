@@ -8,6 +8,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { AuthProvider } from "@/features/auth/AuthProvider";
 import { useAuth } from "@/features/auth/useAuth";
 import { ensureRTL } from "@/lib/i18n/rtl";
+import { QueryProvider } from "@/lib/query";
 import { ThemeProvider, useTheme } from "@/lib/theme";
 
 export default function RootLayout() {
@@ -18,10 +19,12 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider>
-        <AuthProvider>
-          <ThemedStatusBar />
-          <RootGuard />
-        </AuthProvider>
+        <QueryProvider>
+          <AuthProvider>
+            <ThemedStatusBar />
+            <RootGuard />
+          </AuthProvider>
+        </QueryProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );
