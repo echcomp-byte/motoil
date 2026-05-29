@@ -40,6 +40,7 @@ If you add or remove a dependency, **update this file in the same PR**.
 | `i18next` | `^26.3.0` | i18n engine |
 | `react-i18next` | `^17.0.8` | React bindings (`useTranslation`) |
 | `zod` | `^4.4.3` | runtime input validation + parsing |
+| `@tanstack/react-query` | `^5.100.14` | server-state cache + mutations. Provider mounted in `app/_layout.tsx` between Theme and Auth. Query keys live in `src/lib/supabase/queries/*.ts` per-feature (use the `profileKeys`-style factories, never inline arrays). |
 
 ---
 
