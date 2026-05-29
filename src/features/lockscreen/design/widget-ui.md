@@ -158,9 +158,29 @@ LOCKED is its own state because the action is different and recoverable in one t
 
 ## 6. Color, contrast, type
 
-- **Brand red**: `#E53935` (light), `#EF5350` (dark). Source: HANDOFF Section B. WCAG check: `#E53935` on white = 4.13:1 (just under AA for normal text — use 14pt+ bold or pair with darker text for body); `#EF5350` on dark background `#0E0E0E` = 5.42:1 (passes AA).
-- **Blood-type badge**: filled red rounded rect, 4pt corner radius, 16pt height, white text 13pt bold. Always passes AA regardless of mode.
-- **Body text**: system label color. On iOS lock-screen this is forced white-tinted in monochrome mode — design must NOT rely on red being visible there. The blood-type "badge" degrades to a white-stroked rect with the type letter inside; still readable.
+### Contrast budget — where the brand red is allowed
+
+`#E53935` on white = **4.13:1**. That clears WCAG AA only for large text (≥ 18pt regular or ≥ 14pt bold). It does NOT clear AA for body copy (4.5:1 required), and sub-pixel rendering on the lock screen is unforgiving — a paramedic on a rainy roadside with anti-glare in their eyes is the test case, not a perfectly-lit office monitor.
+
+Practical rule: **brand red is an accent surface, never a body-text foreground.**
+
+| element | allowed surface | foreground | measured |
+|---|---|---|---|
+| Blood-type badge | `#E53935` fill | `#FFFFFF` text (13pt bold) | 4.59:1 — clears AA body |
+| App brand "MotoIL ICE" | transparent | `label` (system; black in light, white in dark) | system-managed, always passes |
+| Body copy (name, contacts, allergies) | system background | `label` / `secondaryLabel` | system-managed, always passes |
+| Disclosure / call-to-action accent | transparent | `#E53935` at ≥ 14pt bold or ≥ 18pt regular | 4.13:1 — large-text AA |
+| Sectional divider | `#E53935` 1pt rule | n/a | not text |
+
+**Forbidden combinations** (these would ship a card a paramedic can't read in adverse conditions):
+- `#E53935` on white at 12–13pt regular — fails AA body
+- `#EF5350` on white in light mode — 3.4:1, fails everything
+- `#E53935` on `secondarySystemFill` — too close in chroma, fails practical legibility even where the math passes
+
+**If a paramedic can't read it** (post-build verification on a real device, ideally outdoors in direct sun): step the brand red down to `#C62828` (Material 800). That clears AA body at 5.36:1 on white, at the cost of brand consistency with the rest of the app. PM call when we get there; flag if it happens.
+
+- **Blood-type badge**: filled red `#E53935` rounded rect, 4pt corner radius, 16pt height, white text 13pt bold. Always passes AA regardless of mode (4.59:1 on red, badge itself is 3:1+ against any system background → graphic-AA).
+- **Body text**: system label color (`label` / `secondaryLabel` on iOS, `?android:textColorPrimary` / `?textColorSecondary` on Android). On iOS lock-screen this is forced white-tinted in monochrome mode — design must NOT rely on red being visible there. The blood-type "badge" degrades to a white-stroked rect with the type letter inside; still readable.
 - **Type**: SF Pro on iOS, Roboto on Android. Hebrew renders via system fallback chain; no custom font shipped.
 - **Iconography**: SF Symbols `drop.fill` for blood; `phone.fill` for contact; `figure.outdoor.cycle` (or motorcycle equiv) for bike. Android equivalents from Material Symbols.
 
