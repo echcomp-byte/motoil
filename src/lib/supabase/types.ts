@@ -66,6 +66,7 @@ export type Database = {
           name: string;
           phone: string;
           relation: string | null;
+          priority: number;
           created_at: string | null;
         };
         Insert: {
@@ -74,6 +75,7 @@ export type Database = {
           name: string;
           phone: string;
           relation?: string | null;
+          priority?: number;
           created_at?: string | null;
         };
         Update: {
@@ -82,6 +84,7 @@ export type Database = {
           name?: string;
           phone?: string;
           relation?: string | null;
+          priority?: number;
           created_at?: string | null;
         };
         Relationships: [
@@ -102,6 +105,7 @@ export type Database = {
           model: string;
           year: number | null;
           license_plate: string | null;
+          is_primary: boolean;
           created_at: string | null;
         };
         Insert: {
@@ -111,6 +115,7 @@ export type Database = {
           model: string;
           year?: number | null;
           license_plate?: string | null;
+          is_primary?: boolean;
           created_at?: string | null;
         };
         Update: {
@@ -120,6 +125,7 @@ export type Database = {
           model?: string;
           year?: number | null;
           license_plate?: string | null;
+          is_primary?: boolean;
           created_at?: string | null;
         };
         Relationships: [
