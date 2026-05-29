@@ -4,23 +4,23 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import { OnboardingScreen } from "@/features/onboarding/components/OnboardingScreen";
 import { useTheme } from "@/lib/theme";
 
-export default function WelcomeScreen() {
+export default function WhatIsIceScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const { colors } = useTheme();
 
   function onPressNext() {
-    router.push("/(onboarding)/what-is-ice");
+    router.push("/(onboarding)/how-it-saves-lives");
   }
 
   return (
     <OnboardingScreen
-      step={0}
+      step={1}
       total={4}
-      title={t("onboarding.welcome.title")}
-      body={t("onboarding.welcome.body")}
-      // TODO(post-MVP): replace 🏍️ with custom illustration
-      illustration={<Text style={styles.illustration}>🏍️</Text>}
+      title={t("onboarding.whatIsIce.title")}
+      body={t("onboarding.whatIsIce.body")}
+      // TODO(post-MVP): replace 🆔 with custom illustration
+      illustration={<Text style={styles.illustration}>🆔</Text>}
       actions={
         <Pressable
           accessibilityRole="button"
@@ -31,7 +31,7 @@ export default function WelcomeScreen() {
           onPress={onPressNext}
         >
           <Text style={[styles.ctaText, { color: colors.primaryText }]}>
-            {t("onboarding.welcome.cta")}
+            {t("onboarding.common.next")}
           </Text>
         </Pressable>
       }

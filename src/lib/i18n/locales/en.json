@@ -118,6 +118,19 @@
       "body": "Your digital emergency card for the road. When every second counts, MotoIL gives first responders the information that will save you.",
       "cta": "Let's get started"
     },
+    "whatIsIce": {
+      "title": "What is ICE?",
+      "body": "ICE = In Case of Emergency. A digital card with your emergency contacts, blood type, allergies, and medications — everything first responders need to treat you correctly."
+    },
+    "howItSavesLives": {
+      "title": "How it saves lives",
+      "body": "Responders scan a QR code on your helmet or bike and see your card in under 5 seconds. They know who you are, who to call, and what not to give you. No phone, no internet — it's in their hands at the scene."
+    },
+    "letsBegin": {
+      "title": "Ready to start?",
+      "body": "Let's create your card now — three minutes of work, and it goes with you everywhere you ride.",
+      "cta": "Create my card"
+    },
     "debug": {
       "title": "Development",
       "restart": "Restart onboarding"
