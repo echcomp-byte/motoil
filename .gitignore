@@ -44,6 +44,8 @@ yarn-error.*
 
 # Ruflo memory DB (local only — never commit)
 ruvector.db
+agentdb.rvf
+agentdb.rvf.lock
 
 # Local Claude/agent config
 .claude/
