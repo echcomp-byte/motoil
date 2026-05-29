@@ -37,7 +37,7 @@ Already vendored at `modules/lockscreen-bridge/` — no `npm install` step. Regi
 |---|---|---|---|
 | `appGroupIdentifier` | `string \| null` | `"group.com.echcomp.motoil.ice"` | Adds to `com.apple.security.application-groups` in the iOS entitlements. Set to `null` to skip the iOS mod entirely. |
 | `androidWidgetReceiverClass` | `string \| null` | `null` | Fully-qualified Java class name (e.g. `"com.echcomp.motoil.widget.IceWidgetProvider"`). When set, registers a `<receiver>` block with an `APPWIDGET_UPDATE` intent-filter and a `meta-data` pointer to `@xml/motoil_ice_widget_info`. **Leave `null` until the Kotlin class and `res/xml/motoil_ice_widget_info.xml` actually exist in the prebuilt project** — registering a receiver against a missing class will crash on broadcast. |
-| `iosWidgetExtensionEnabled` | `boolean` | `false` | When `true`, adds an `app_extension` target named `MotoILWidget` to the Xcode project with Sources/Frameworks (WidgetKit, SwiftUI)/Resources build phases, and embeds it into the main app via a `PBXCopyFilesBuildPhase` with the `app_extension` subfolder spec. **Leave `false` until `ios/MotoILWidget/{Info.plist,MotoILWidget.entitlements,MotoILWidget.swift}` exist** — when `true` and those files are missing, the mod logs a warning and the resulting Xcode project will compile the main app fine but fail on the extension target. End-to-end validation requires `npx expo prebuild --clean` after Swift sources land in step 3. |
+| `iosWidgetExtensionEnabled` | `boolean` | `false` | When `true`: (a) `withWidgetExtensionResources` copies `templates/ios/MotoILWidget/` into `<platformProjectRoot>/MotoILWidget/` via `withDangerousMod`; (b) `withWidgetExtensionTarget` adds an `app_extension` target named `MotoILWidget` to the Xcode project with Sources/Frameworks (WidgetKit, SwiftUI)/Resources build phases, and embeds it into the main app via a `PBXCopyFilesBuildPhase` with the `app_extension` subfolder spec. The two mods run in that order so the target registration sees files already on disk. `Info.plist` and `MotoILWidget.entitlements` are templates today; `MotoILWidget.swift` lands in step 3. Until then `warnIfSwiftMissing` logs which files are still expected. End-to-end validation requires `npx expo prebuild --clean` after Swift sources land in step 3. |
 
 ## Idempotency
 
@@ -49,15 +49,14 @@ The `app.json` overlay (`app.config.ts`) is the contract Expo prebuild reads. If
 
 ## Templates
 
-`templates/ios/MotoILWidget/` holds the WidgetKit extension's `Info.plist` and `.entitlements` as source-of-truth. They are NOT copied into `ios/` yet — that's a step-3 plugin enhancement (`withWidgetExtensionResources` + `withDangerousMod`). See `templates/README.md` for the copy plan.
+`templates/ios/MotoILWidget/` holds the WidgetKit extension's `Info.plist` and `.entitlements` as source-of-truth. `withWidgetExtensionResources` copies them into `<platformProjectRoot>/MotoILWidget/` at prebuild time when `iosWidgetExtensionEnabled: true`. See `templates/README.md` for the copy ordering rationale.
 
-The Swift source (`MotoILWidget.swift`) is deliberately absent — it lands when RFC #2 schema v1 is frozen and there's a stable snapshot shape to compile against.
+The Swift source (`MotoILWidget.swift`) is deliberately absent — it lands when RFC #2 schema v1 is frozen and there's a stable snapshot shape to compile against. Until then `withWidgetExtensionTarget.warnIfSwiftMissing()` flags it as expected-missing.
 
 ## Future work (post RFC signoff)
 
 - `withWidgetExtensionTarget` **scaffolded** as of an earlier commit (default disabled). Once Swift sources land in step 3, flip `iosWidgetExtensionEnabled: true` in `app.json` and run `npx expo prebuild --clean` to validate the PBX manipulations end-to-end.
-- `withWidgetExtensionResources`: copy `templates/ios/MotoILWidget/{Info.plist,MotoILWidget.entitlements,MotoILWidget.swift}` into `ios/MotoILWidget/` during prebuild via `withDangerousMod`. Stub described in `templates/README.md`.
-- `withAndroidWidgetResources`: copy `motoil_ice_widget_info.xml` + drawable previews into `android/app/src/main/res/xml/` and `res/drawable/` during prebuild.
+- `withAndroidWidgetResources`: copy `motoil_ice_widget_info.xml` + drawable previews into `android/app/src/main/res/xml/` and `res/drawable/` during prebuild — mirror of `withWidgetExtensionResources` for the Android receiver class assets.
 
 ## Tracking
 
