@@ -26,10 +26,10 @@ Go to **Settings → Secrets and variables → Actions → New repository secret
 | `SUPABASE_ACCESS_TOKEN` | (from `npx supabase login` → supabase.com → account → access tokens) | future workflows that run `supabase db push` or `supabase gen types` automatically |
 | `EXPO_PUBLIC_POSTHOG_KEY` ✅ | (from PostHog Dashboard → Project Settings → Project API Key) — landed 2026-05-28 by PM | Phase 1 analytics — `posthog-react-native` reads this at bundle time |
 | `EXPO_PUBLIC_POSTHOG_HOST` ✅ | `https://eu.i.posthog.com` (EU cloud — matches Supabase EU residency) — landed 2026-05-28 by PM | PostHog endpoint; EU host avoids cross-region data transfer |
-| `EXPO_PUBLIC_SENTRY_DSN` | (from Sentry Dashboard → Settings → Projects → motoil → Client Keys (DSN)) | Phase 1 crash reporting — `@sentry/react-native` reads this at init |
-| `SENTRY_AUTH_TOKEN` | (from Sentry → Settings → Account → API → Auth Tokens, scope `project:releases`) | sourcemap upload during `eas build`; server-side only (NOT prefixed `EXPO_PUBLIC_`) |
-| `SENTRY_ORG` | (your Sentry org slug — visible in dashboard URL) | sourcemap upload target |
-| `SENTRY_PROJECT` | `motoil` (suggested — confirm at project creation) | sourcemap upload target |
+| `EXPO_PUBLIC_SENTRY_DSN` ✅ | (from Sentry Dashboard → Settings → Projects → motoil → Client Keys (DSN)) — landed 2026-05-28 by PM (Sentry US region; existing org) | Phase 1 crash reporting — `@sentry/react-native` reads this at init |
+| `SENTRY_AUTH_TOKEN` ⏳ | (from Sentry → Settings → Account → API → Auth Tokens, scope `project:releases`) — PM creating; build-time only, not blocking runtime | sourcemap upload during `eas build`; server-side only (NOT prefixed `EXPO_PUBLIC_`) |
+| `SENTRY_ORG` ✅ | `echcomp` — landed 2026-05-28 by PM | sourcemap upload target |
+| `SENTRY_PROJECT` ✅ | `motoil` — landed 2026-05-28 by PM | sourcemap upload target |
 
 The first four follow the **EXPO_PUBLIC_*** convention because anything Expo will read them at bundle time the same way it would on a developer machine. Same applies to `EXPO_PUBLIC_POSTHOG_*` and `EXPO_PUBLIC_SENTRY_DSN` — they are client-bundled by design (PostHog/Sentry DSNs are public-by-design write-only keys).
 
