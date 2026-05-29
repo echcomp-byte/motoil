@@ -47,11 +47,17 @@ Wrapped in `createRunOncePlugin` (keyed on package name + version). The mods the
 
 The `app.json` overlay (`app.config.ts`) is the contract Expo prebuild reads. If anyone re-runs `expo prebuild --clean`, raw edits to `ios/` and `android/` get blown away. All native config changes for this feature MUST flow through this plugin so the prebuild output is reproducible.
 
+## Templates
+
+`templates/ios/MotoILWidget/` holds the WidgetKit extension's `Info.plist` and `.entitlements` as source-of-truth. They are NOT copied into `ios/` yet — that's a step-3 plugin enhancement (`withWidgetExtensionResources` + `withDangerousMod`). See `templates/README.md` for the copy plan.
+
+The Swift source (`MotoILWidget.swift`) is deliberately absent — it lands when RFC #2 schema v1 is frozen and there's a stable snapshot shape to compile against.
+
 ## Future work (post RFC signoff)
 
-- `withWidgetExtensionTarget` **scaffolded** as of this commit (default disabled). Once Swift sources land in step 3, flip `iosWidgetExtensionEnabled: true` in `app.json` and run `npx expo prebuild --clean` to validate the PBX manipulations end-to-end.
+- `withWidgetExtensionTarget` **scaffolded** as of an earlier commit (default disabled). Once Swift sources land in step 3, flip `iosWidgetExtensionEnabled: true` in `app.json` and run `npx expo prebuild --clean` to validate the PBX manipulations end-to-end.
+- `withWidgetExtensionResources`: copy `templates/ios/MotoILWidget/{Info.plist,MotoILWidget.entitlements,MotoILWidget.swift}` into `ios/MotoILWidget/` during prebuild via `withDangerousMod`. Stub described in `templates/README.md`.
 - `withAndroidWidgetResources`: copy `motoil_ice_widget_info.xml` + drawable previews into `android/app/src/main/res/xml/` and `res/drawable/` during prebuild.
-- `withWidgetExtensionEntitlements`: write `ios/MotoILWidget/MotoILWidget.entitlements` (App Group only) during prebuild rather than checking it in. Currently the file is expected to be hand-managed; a future iteration generates it from `appGroupIdentifier`.
 
 ## Tracking
 
