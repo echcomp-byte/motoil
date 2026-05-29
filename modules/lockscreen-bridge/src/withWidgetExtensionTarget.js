@@ -13,6 +13,10 @@ const REQUIRED_FILES_HINT = [
   `ios/${EXTENSION_DIR_NAME}/${EXTENSION_NAME}.swift`,
 ];
 
+// Templates live at ../templates/ios/MotoILWidget/. Step 3 enhancement will
+// wire withDangerousMod to copy them into cfg.modRequest.platformProjectRoot
+// at prebuild time. See modules/lockscreen-bridge/templates/README.md.
+
 function findExtensionTargetKey(project, name) {
   const targets = project.pbxNativeTargetSection();
   for (const key of Object.keys(targets)) {
