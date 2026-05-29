@@ -1,18 +1,41 @@
+import Constants from "expo-constants";
 import { useRouter } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Alert, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useAuth } from "@/features/auth/useAuth";
 import { useHasSeenOnboarding } from "@/features/onboarding/storage";
+import { SettingsRow } from "@/features/settings/components/SettingsRow";
 import { useTheme } from "@/lib/theme";
 
 export default function SettingsTab() {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const router = useRouter();
+  const { signOut } = useAuth();
   const { reset } = useHasSeenOnboarding();
 
-  // TODO(Dev D): real settings UI (language toggle, dark mode override, delete
-  // account, sign out, version info) — this session is scaffold only.
+  const version = Constants.expoConfig?.version ?? "—";
+  const build =
+    Platform.OS === "ios"
+      ? (Constants.expoConfig?.ios?.buildNumber ?? "—")
+      : String(Constants.expoConfig?.android?.versionCode ?? "—");
+
+  function onPressLogout() {
+    Alert.alert(t("settings.logoutConfirmTitle"), t("settings.logoutConfirmBody"), [
+      { text: t("common.cancel"), style: "cancel" },
+      {
+        text: t("settings.logout"),
+        style: "destructive",
+        onPress: async () => {
+          const { errorKey } = await signOut();
+          if (errorKey) Alert.alert(t(errorKey));
+          // RootGuard redirects to /(auth)/login on session === null
+        },
+      },
+    ]);
+  }
+
   async function onPressRestartOnboarding() {
     await reset();
     router.push("/(onboarding)/welcome");
@@ -20,17 +43,20 @@ export default function SettingsTab() {
 
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={[styles.title, { color: colors.text }]}>{t("tabs.settings")}</Text>
-        <Text style={[styles.muted, { color: colors.textMuted }]}>
-          {t("placeholders.settingsSoon")}
-        </Text>
+
+        <Section title={t("settings.sections.account")} color={colors.textMuted}>
+          <SettingsRow label={t("settings.logout")} destructive onPress={onPressLogout} />
+        </Section>
+
+        <Section title={t("settings.sections.about")} color={colors.textMuted}>
+          <SettingsRow label={t("settings.version")} value={version} />
+          <SettingsRow label={t("settings.build")} value={build} />
+        </Section>
 
         {__DEV__ ? (
-          <View style={[styles.debugBlock, { borderColor: colors.border }]}>
-            <Text style={[styles.debugLabel, { color: colors.textMuted }]}>
-              {t("onboarding.debug.title")}
-            </Text>
+          <Section title={t("onboarding.debug.title")} color={colors.textMuted}>
             <Pressable
               accessibilityRole="button"
               style={({ pressed }) => [
@@ -43,32 +69,44 @@ export default function SettingsTab() {
                 {t("onboarding.debug.restart")}
               </Text>
             </Pressable>
-          </View>
+          </Section>
         ) : null}
-      </View>
+      </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function Section({
+  title,
+  color,
+  children,
+}: {
+  title: string;
+  color: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <View style={styles.section}>
+      <Text style={[styles.sectionTitle, { color }]}>{title}</Text>
+      <View style={styles.sectionBody}>{children}</View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   safe: { flex: 1 },
-  container: { flex: 1, alignItems: "center", justifyContent: "center", gap: 8, padding: 24 },
-  title: { fontSize: 24, fontWeight: "700" },
-  muted: { fontSize: 14 },
-  debugBlock: {
-    marginTop: 40,
-    padding: 16,
-    borderWidth: 1,
-    borderRadius: 8,
-    gap: 8,
-    width: "100%",
-  },
-  debugLabel: { fontSize: 12, textAlign: "center" },
+  scroll: { padding: 16, gap: 8 },
+  title: { fontSize: 28, fontWeight: "700", marginVertical: 8 },
+  section: { marginTop: 16, gap: 6 },
+  sectionTitle: { fontSize: 12, fontWeight: "600", textTransform: "uppercase", paddingHorizontal: 4 },
+  sectionBody: { borderRadius: 12, overflow: "hidden" },
   debugButton: {
     borderWidth: 1,
-    borderRadius: 6,
-    paddingVertical: 10,
+    borderRadius: 8,
+    paddingVertical: 12,
     alignItems: "center",
+    marginHorizontal: 16,
+    marginVertical: 12,
   },
   debugButtonText: { fontSize: 14, fontWeight: "600" },
 });

@@ -107,6 +107,17 @@
       "retry": "נסה שוב"
     }
   },
+  "settings": {
+    "sections": {
+      "account": "חשבון",
+      "about": "אודות"
+    },
+    "logout": "התנתק",
+    "logoutConfirmTitle": "להתנתק?",
+    "logoutConfirmBody": "תוכל להיכנס שוב בכל עת.",
+    "version": "גרסה",
+    "build": "Build"
+  },
   "onboarding": {
     "common": {
       "next": "הבא",

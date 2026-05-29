@@ -107,6 +107,17 @@
       "retry": "Retry"
     }
   },
+  "settings": {
+    "sections": {
+      "account": "Account",
+      "about": "About"
+    },
+    "logout": "Sign out",
+    "logoutConfirmTitle": "Sign out?",
+    "logoutConfirmBody": "You can sign back in any time.",
+    "version": "Version",
+    "build": "Build"
+  },
   "onboarding": {
     "common": {
       "next": "Next",
