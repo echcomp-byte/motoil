@@ -55,6 +55,7 @@ If you add or remove a dependency, **update this file in the same PR**.
 | `eslint-plugin-prettier` | `^5.5.6` | runs Prettier as an ESLint rule |
 | `prettier` | `^3.8.3` | formatter |
 | `supabase` | `^2.101.0` | CLI (`npx supabase` — login, db pull, gen types, link) |
+| `vitest` | `^4.1.7` | unit-test runner for pure-TS modules (validators, future helpers). Pure-Node environment — does NOT run RN components. If Dev D needs RN component testing later, they should add `jest-expo` as a separate runner. |
 
 ---
 
