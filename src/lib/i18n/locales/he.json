@@ -120,6 +120,15 @@
       "dark": "כהה",
       "chooseTitle": "מראה האפליקציה"
     },
+    "language": {
+      "label": "שפה",
+      "he": "עברית",
+      "en": "English",
+      "chooseTitle": "שפת האפליקציה",
+      "reloadTitle": "להחיל את השפה?",
+      "reloadBody": "האפליקציה תרענן כדי לעדכן את כיוון הטקסט.",
+      "reloadCta": "רענן עכשיו"
+    },
     "logout": "התנתק",
     "logoutConfirmTitle": "להתנתק?",
     "logoutConfirmBody": "תוכל להיכנס שוב בכל עת.",

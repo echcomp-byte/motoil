@@ -120,6 +120,15 @@
       "dark": "Dark",
       "chooseTitle": "App appearance"
     },
+    "language": {
+      "label": "Language",
+      "he": "עברית",
+      "en": "English",
+      "chooseTitle": "App language",
+      "reloadTitle": "Apply language?",
+      "reloadBody": "The app will reload to update text direction.",
+      "reloadCta": "Reload now"
+    },
     "logout": "Sign out",
     "logoutConfirmTitle": "Sign out?",
     "logoutConfirmBody": "You can sign back in any time.",

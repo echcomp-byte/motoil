@@ -6,14 +6,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "@/features/auth/useAuth";
 import { useHasSeenOnboarding } from "@/features/onboarding/storage";
 import { SettingsRow } from "@/features/settings/components/SettingsRow";
+import i18nInstance from "@/lib/i18n";
+import { ensureRTL } from "@/lib/i18n/rtl";
+import { setStoredLanguage, type Language } from "@/lib/i18n/storage";
 import { useTheme, type ThemeMode } from "@/lib/theme";
 
 export default function SettingsTab() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { colors, mode, setMode } = useTheme();
   const router = useRouter();
   const { signOut } = useAuth();
   const { reset } = useHasSeenOnboarding();
+  const currentLanguage: Language = i18n.language === "en" ? "en" : "he";
 
   const version = Constants.expoConfig?.version ?? "—";
   const build =
@@ -41,6 +45,39 @@ export default function SettingsTab() {
     router.push("/(onboarding)/welcome");
   }
 
+  function onPressLanguage() {
+    const options: { key: Language; label: string }[] = [
+      { key: "he", label: t("settings.language.he") },
+      { key: "en", label: t("settings.language.en") },
+    ];
+    Alert.alert(t("settings.language.chooseTitle"), undefined, [
+      ...options.map((o) => ({
+        text: o.label + (o.key === currentLanguage ? "  ✓" : ""),
+        onPress: () => {
+          if (o.key === currentLanguage) return;
+          applyLanguageChange(o.key);
+        },
+      })),
+      { text: t("common.cancel"), style: "cancel" as const },
+    ]);
+  }
+
+  function applyLanguageChange(next: Language) {
+    Alert.alert(t("settings.language.reloadTitle"), t("settings.language.reloadBody"), [
+      { text: t("common.cancel"), style: "cancel" },
+      {
+        text: t("settings.language.reloadCta"),
+        style: "destructive",
+        onPress: async () => {
+          await setStoredLanguage(next);
+          await i18nInstance.changeLanguage(next);
+          // ensureRTL reads stored language; reloadAsync fires inside if RTL must flip
+          await ensureRTL();
+        },
+      },
+    ]);
+  }
+
   function onPressTheme() {
     const options: { key: ThemeMode; label: string }[] = [
       { key: "system", label: t("settings.theme.system") },
@@ -64,6 +101,11 @@ export default function SettingsTab() {
         <Text style={[styles.title, { color: colors.text }]}>{t("tabs.settings")}</Text>
 
         <Section title={t("settings.sections.preferences")} color={colors.textMuted}>
+          <SettingsRow
+            label={t("settings.language.label")}
+            value={t(`settings.language.${currentLanguage}`)}
+            onPress={onPressLanguage}
+          />
           <SettingsRow
             label={t("settings.theme.label")}
             value={t(`settings.theme.${mode}`)}
