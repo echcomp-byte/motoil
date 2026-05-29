@@ -105,6 +105,15 @@
       "title": "Failed to load code",
       "body": "Check your network and try again.",
       "retry": "Retry"
+    },
+    "action": {
+      "print": "Print",
+      "share": "Share",
+      "error": {
+        "title": "Action failed",
+        "shareUnavailable": "Sharing isn't available on this device.",
+        "generic": "Could not prepare the file. Try again."
+      }
     }
   }
 }

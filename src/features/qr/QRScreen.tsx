@@ -1,13 +1,16 @@
-import { useState } from "react";
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useRef, useState } from "react";
+import { ActivityIndicator, Alert, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/features/auth/useAuth";
 import { useTheme } from "@/lib/theme";
 import { usePublicToken, useRotatePublicToken } from "@/lib/supabase/queries";
-import { QRCard } from "./QRCard";
+import { QRCard, type QRCardHandle } from "./QRCard";
 import { RotateConfirmModal } from "./RotateConfirmModal";
 import { buildQrUrl } from "./qrUrl";
+import { printRescueCard, shareRescueCard } from "./qrShare";
+
+type Action = "print" | "share";
 
 export function QRScreen() {
   const { t } = useTranslation();
@@ -18,12 +21,39 @@ export function QRScreen() {
   const tokenQuery = usePublicToken(userId);
   const rotate = useRotatePublicToken(userId ?? "");
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [busy, setBusy] = useState<Action | null>(null);
+  const qrCardRef = useRef<QRCardHandle>(null);
 
   const onConfirmRotate = async () => {
     try {
       await rotate.mutateAsync();
     } finally {
       setConfirmOpen(false);
+    }
+  };
+
+  const runAction = async (action: Action, url: string) => {
+    if (busy) return;
+    setBusy(action);
+    try {
+      const qrPng = await qrCardRef.current?.getDataURL();
+      if (!qrPng) throw new Error("qr_not_ready");
+      // The qrShare helpers want a ref with a callback-style toDataURL
+      // (matching the SVG ref). We already have the PNG, so the stub just
+      // hands it back synchronously — avoids a second SVG → PNG round trip.
+      const refStub = { toDataURL: (cb: (s: string) => void) => cb(qrPng) };
+      if (action === "print") {
+        await printRescueCard({ qrRef: refStub, url });
+      } else {
+        await shareRescueCard({ qrRef: refStub, url });
+      }
+    } catch (err) {
+      const code = (err as Error).message;
+      const key =
+        code === "share_unavailable" ? "qr.action.error.shareUnavailable" : "qr.action.error.generic";
+      Alert.alert(t("qr.action.error.title"), t(key));
+    } finally {
+      setBusy(null);
     }
   };
 
@@ -52,14 +82,32 @@ export function QRScreen() {
           </View>
         ) : (
           <>
-            <QRCard url={buildQrUrl(tokenQuery.data.token)} />
+            <QRCard ref={qrCardRef} url={buildQrUrl(tokenQuery.data.token)} />
 
             <View style={styles.actions}>
+              <View style={styles.row}>
+                <ActionButton
+                  label={t("qr.action.print")}
+                  primary
+                  busy={busy === "print"}
+                  disabled={busy !== null}
+                  onPress={() => runAction("print", buildQrUrl(tokenQuery.data!.token))}
+                  colors={colors}
+                />
+                <ActionButton
+                  label={t("qr.action.share")}
+                  busy={busy === "share"}
+                  disabled={busy !== null}
+                  onPress={() => runAction("share", buildQrUrl(tokenQuery.data!.token))}
+                  colors={colors}
+                />
+              </View>
               <Pressable
                 onPress={() => setConfirmOpen(true)}
                 style={[styles.actionBtn, { borderColor: colors.border }]}
                 accessibilityRole="button"
                 accessibilityLabel={t("qr.rotate.button")}
+                disabled={busy !== null}
               >
                 <Text style={[styles.actionText, { color: colors.text }]}>{t("qr.rotate.button")}</Text>
               </Pressable>
@@ -75,6 +123,45 @@ export function QRScreen() {
         onConfirm={onConfirmRotate}
       />
     </SafeAreaView>
+  );
+}
+
+function ActionButton({
+  label,
+  primary,
+  busy,
+  disabled,
+  onPress,
+  colors,
+}: {
+  label: string;
+  primary?: boolean;
+  busy: boolean;
+  disabled: boolean;
+  onPress: () => void;
+  colors: { primary: string; border: string; text: string };
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      style={[
+        styles.actionBtn,
+        styles.flex1,
+        primary
+          ? { backgroundColor: colors.primary, borderColor: "transparent" }
+          : { borderColor: colors.border },
+        disabled ? styles.disabled : null,
+      ]}
+    >
+      {busy ? (
+        <ActivityIndicator color={primary ? "#ffffff" : colors.primary} />
+      ) : (
+        <Text style={[styles.actionText, { color: primary ? "#ffffff" : colors.text }]}>{label}</Text>
+      )}
+    </Pressable>
   );
 }
 
@@ -97,12 +184,17 @@ const styles = StyleSheet.create({
   },
   retryText: { fontSize: 14, fontWeight: "600" },
   actions: { width: "100%", gap: 8, marginTop: 8 },
+  row: { flexDirection: "row", gap: 8 },
+  flex1: { flex: 1 },
   actionBtn: {
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 10,
     borderWidth: 1,
     alignItems: "center",
+    justifyContent: "center",
+    minHeight: 48,
   },
   actionText: { fontSize: 15, fontWeight: "600" },
+  disabled: { opacity: 0.5 },
 });
