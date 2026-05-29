@@ -42,6 +42,12 @@
       "expo-apple-authentication",
       "expo-sharing",
       [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.593396689176-4uvegoke6a49qgtch7r81p3kdi0qt54c"
+        }
+      ],
+      [
         "./modules/lockscreen-bridge/app.plugin",
         {
           "appGroupIdentifier": "group.com.echcomp.motoil.ice",
