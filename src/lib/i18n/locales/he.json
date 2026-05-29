@@ -54,8 +54,40 @@
     "settings": "הגדרות"
   },
   "placeholders": {
-    "bikesSoon": "בקרוב — Dev A",
     "settingsSoon": "בקרוב — Dev D"
+  },
+  "bikes": {
+    "lead": "האופנוע שמוגדר כראשי מופיע בוידג'ט החירום ובכרטיס ה-QR הציבורי.",
+    "empty": "לא נוספו עדיין אופנועים.",
+    "addCta": "הוסף אופנוע",
+    "primaryBadge": "ראשי",
+    "loadFailed": "טעינת האופנועים נכשלה. נסו שוב.",
+    "isPrimaryHint": "מופיע בוידג'ט ובכרטיס ה-QR הציבורי",
+    "deleteConfirmTitle": "למחוק את האופנוע?",
+    "deleteConfirmBody": "{{name}} יוסר מהמוסך הדיגיטלי. אפשר להוסיף שוב בכל עת.",
+    "fields": {
+      "make": "יצרן",
+      "model": "דגם",
+      "year": "שנת ייצור",
+      "licensePlate": "לוחית רישוי",
+      "isPrimary": "אופנוע ראשי"
+    },
+    "placeholders": {
+      "make": "למשל Yamaha",
+      "model": "למשל MT-07",
+      "year": "1999-2026",
+      "licensePlate": "1234567 או 12345678"
+    },
+    "errors": {
+      "makeRequired": "יצרן הוא שדה חובה",
+      "makeTooLong": "שם היצרן ארוך מדי",
+      "modelRequired": "דגם הוא שדה חובה",
+      "modelTooLong": "שם הדגם ארוך מדי",
+      "yearInvalid": "שנת ייצור לא תקינה",
+      "yearOutOfRange": "שנת ייצור מחוץ לטווח (1900-עכשיו)",
+      "licensePlateInvalid": "לוחית רישוי לא תקינה (7 או 8 ספרות)",
+      "saveFailed": "השמירה נכשלה. נסו שוב."
+    }
   },
   "profile": {
     "heading": "כרטיס חירום רפואי",
