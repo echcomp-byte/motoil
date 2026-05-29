@@ -32,7 +32,8 @@
     "eslint-plugin-prettier": "^5.5.6",
     "prettier": "^3.8.3",
     "supabase": "^2.101.0",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.7"
   },
   "scripts": {
     "start": "expo start",
@@ -43,7 +44,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"no tests yet\" && exit 0"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "private": true
 }
