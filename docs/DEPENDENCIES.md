@@ -78,3 +78,18 @@ If you add or remove a dependency, **update this file in the same PR**.
 ## Removing a dependency
 
 Same as adding, in reverse. Delete the row here. Run `npm prune` after removing from `package.json` to clean the lockfile.
+
+---
+
+## `web/` — public rescue page (Dev C, separate workspace)
+
+`web/` is a standalone Next.js project with its own `package.json` and `package-lock.json`. It deploys to Vercel (Root Directory = `web`). It does **not** share `node_modules` with the RN app and is unaffected by the root `.npmrc legacy-peer-deps` flag. Dependencies in `web/package.json` are scoped to that subproject only.
+
+| package | version | role |
+|---|---|---|
+| `next` | `15.5.18` | App Router + SSR for `/p/[token]`. v15.5.18 is the `backport` channel patched against CVE-2025-66478 (the 15.1.x line we initially picked was vulnerable). |
+| `react` / `react-dom` | `19.0.0` | matches the RN app's React 19 line for ecosystem consistency |
+| `eslint` + `eslint-config-next` | `^9.18.0` / `15.5.18` | lint during `next build` + manual `npm run lint` |
+| `typescript` | `~5.7.3` | `tsc --noEmit` via `npm run typecheck` |
+
+No runtime deps beyond `next` and `react`. No CSS framework — handwritten CSS in `web/app/globals.css` with a print stylesheet for the A4 rescue card. **Zero third-party scripts, zero analytics, zero fonts loaded from a CDN** — the rescue page is read-only PHI in transit and must not leak to any third party.
