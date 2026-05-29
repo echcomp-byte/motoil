@@ -2,6 +2,21 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createContext, useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useColorScheme } from "react-native";
 import { darkColors, lightColors, type Colors } from "./colors";
+import {
+  motion,
+  radius,
+  shadow,
+  shadowDark,
+  spacing,
+  touchSize,
+  typography,
+  type Motion,
+  type Radius,
+  type Shadow,
+  type Spacing,
+  type TouchSize,
+  type Typography,
+} from "./tokens";
 
 export type ColorScheme = "light" | "dark";
 export type ThemeMode = "system" | "light" | "dark";
@@ -10,6 +25,12 @@ const MODE_KEY = "motoil:themeMode";
 
 export type ThemeContextValue = {
   colors: Colors;
+  spacing: Spacing;
+  radius: Radius;
+  typography: Typography;
+  shadow: Shadow;
+  motion: Motion;
+  touchSize: TouchSize;
   isDark: boolean;
   scheme: ColorScheme;
   mode: ThemeMode;
@@ -48,6 +69,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const value = useMemo<ThemeContextValue>(
     () => ({
       colors: isDark ? darkColors : lightColors,
+      spacing,
+      radius,
+      typography,
+      shadow: isDark ? shadowDark : shadow,
+      motion,
+      touchSize,
       isDark,
       scheme,
       mode,
