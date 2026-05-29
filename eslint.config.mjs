@@ -14,6 +14,9 @@ export default [
       "android/",
       "ios/",
       "supabase/migrations/",
+      // Sub-projects with their own tooling — never linted by the RN root.
+      "web/",                    // Next.js project; own eslint-config-next
+      "supabase/functions/",     // Deno project; own deno.json + Deno linter
     ],
   },
 ];
