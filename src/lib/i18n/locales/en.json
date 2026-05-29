@@ -106,5 +106,21 @@
       "body": "Check your network and try again.",
       "retry": "Retry"
     }
+  },
+  "onboarding": {
+    "common": {
+      "next": "Next",
+      "back": "Back",
+      "skip": "Skip"
+    },
+    "welcome": {
+      "title": "Welcome to MotoIL",
+      "body": "Your digital emergency card for the road. When every second counts, MotoIL gives first responders the information that will save you.",
+      "cta": "Let's get started"
+    },
+    "debug": {
+      "title": "Development",
+      "restart": "Restart onboarding"
+    }
   }
 }
