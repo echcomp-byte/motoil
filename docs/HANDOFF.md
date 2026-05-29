@@ -122,7 +122,18 @@ When done with a feature, push the branch and open a PR to `main`. Delete the wo
 
 ---
 
-## G. Where to ask questions
+## G. Live infrastructure (Phase 1)
+
+| service | what | URL |
+|---|---|---|
+| **Vercel** (project `echcomp-bytes-projects/motoil`) | hosts the public rescue page (`web/`). Root Directory = `web`. GitHub integration is wired — every PR gets an automatic preview deploy. Deployment Protection is intentionally **off** so paramedics can scan the QR without a Vercel login wall. Will be transferred to a Pro team in Phase 2 via "Transfer Project" — one button, no DNS churn. | https://motoil-gbbovetlb-echcomp-bytes-projects.vercel.app |
+| **Supabase** (project `motoil`, ref `wiwyxtccnkpvracmsuje`) | EU `eu-west-3` Paris. Holds `profiles`, `emergency_contacts`, `bikes`, `public_tokens`, `public_rate_limits` (migration 0003), plus the `public-profile` Edge Function. Service-role used only inside the Edge Function — never exposed to the client. | https://wiwyxtccnkpvracmsuje.supabase.co |
+
+The QR codes the RN app generates embed `${EXPO_PUBLIC_QR_BASE_URL}/p/<token>` — defaults to the Vercel URL above. Phase 2 swap to a custom domain (`ice.motoil.app` or similar) is a single env-var change across the RN app + the Vercel project; no code edits.
+
+---
+
+## H. Where to ask questions
 
 - **Slack:** `#motoil`
 - **PM:** Eli — `echcomp@gmail.com`
@@ -130,7 +141,7 @@ When done with a feature, push the branch and open a PR to `main`. Delete the wo
 
 ---
 
-## H. Phase 0 commit log (for the curious)
+## I. Phase 0 commit log (for the curious)
 
 ```
 5d93946 feat(day4): apple + google oauth + ci
