@@ -35,7 +35,14 @@
       "expo-status-bar",
       "expo-localization",
       "expo-apple-authentication",
-      "expo-sharing"
+      "expo-sharing",
+      [
+        "./modules/lockscreen-bridge",
+        {
+          "appGroupIdentifier": "group.com.echcomp.motoil.ice",
+          "androidWidgetReceiverClass": null
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": false
