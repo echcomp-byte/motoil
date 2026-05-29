@@ -109,8 +109,16 @@
   },
   "settings": {
     "sections": {
+      "preferences": "Preferences",
       "account": "Account",
       "about": "About"
+    },
+    "theme": {
+      "label": "Appearance",
+      "system": "Automatic (match device)",
+      "light": "Light",
+      "dark": "Dark",
+      "chooseTitle": "App appearance"
     },
     "logout": "Sign out",
     "logoutConfirmTitle": "Sign out?",

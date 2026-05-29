@@ -109,8 +109,16 @@
   },
   "settings": {
     "sections": {
+      "preferences": "העדפות",
       "account": "חשבון",
       "about": "אודות"
+    },
+    "theme": {
+      "label": "מראה",
+      "system": "אוטומטי (לפי המכשיר)",
+      "light": "בהיר",
+      "dark": "כהה",
+      "chooseTitle": "מראה האפליקציה"
     },
     "logout": "התנתק",
     "logoutConfirmTitle": "להתנתק?",

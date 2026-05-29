@@ -6,11 +6,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "@/features/auth/useAuth";
 import { useHasSeenOnboarding } from "@/features/onboarding/storage";
 import { SettingsRow } from "@/features/settings/components/SettingsRow";
-import { useTheme } from "@/lib/theme";
+import { useTheme, type ThemeMode } from "@/lib/theme";
 
 export default function SettingsTab() {
   const { t } = useTranslation();
-  const { colors } = useTheme();
+  const { colors, mode, setMode } = useTheme();
   const router = useRouter();
   const { signOut } = useAuth();
   const { reset } = useHasSeenOnboarding();
@@ -41,10 +41,35 @@ export default function SettingsTab() {
     router.push("/(onboarding)/welcome");
   }
 
+  function onPressTheme() {
+    const options: { key: ThemeMode; label: string }[] = [
+      { key: "system", label: t("settings.theme.system") },
+      { key: "light", label: t("settings.theme.light") },
+      { key: "dark", label: t("settings.theme.dark") },
+    ];
+    Alert.alert(t("settings.theme.chooseTitle"), undefined, [
+      ...options.map((o) => ({
+        text: o.label + (o.key === mode ? "  ✓" : ""),
+        onPress: () => {
+          void setMode(o.key);
+        },
+      })),
+      { text: t("common.cancel"), style: "cancel" as const },
+    ]);
+  }
+
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <Text style={[styles.title, { color: colors.text }]}>{t("tabs.settings")}</Text>
+
+        <Section title={t("settings.sections.preferences")} color={colors.textMuted}>
+          <SettingsRow
+            label={t("settings.theme.label")}
+            value={t(`settings.theme.${mode}`)}
+            onPress={onPressTheme}
+          />
+        </Section>
 
         <Section title={t("settings.sections.account")} color={colors.textMuted}>
           <SettingsRow label={t("settings.logout")} destructive onPress={onPressLogout} />
