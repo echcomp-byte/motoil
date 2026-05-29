@@ -37,7 +37,7 @@
       "expo-apple-authentication",
       "expo-sharing",
       [
-        "./modules/lockscreen-bridge",
+        "./modules/lockscreen-bridge/app.plugin",
         {
           "appGroupIdentifier": "group.com.echcomp.motoil.ice",
           "androidWidgetReceiverClass": null
