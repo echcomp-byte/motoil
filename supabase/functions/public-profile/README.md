@@ -30,9 +30,11 @@ Auto-injected by Supabase at runtime — do not set manually:
 
 ## Rate limiting
 
-Backed by Postgres function `public_profile_rate_limit_hit(token, minute_bucket)` over table `public_rate_limits`. **The migration is not yet applied** — see `docs/proposals/2026-05-28_public_rate_limits.sql`. Pending Dev A review.
+Backed by Postgres function `public_profile_rate_limit_hit(token)` over table `public_rate_limits`. The function is defined in `supabase/migrations/0003_public_rate_limits.sql` (PR #13). `minute_bucket` is computed server-side inside the SECURITY DEFINER body so the caller cannot skew bucket boundaries.
 
-Until the migration lands, the function fails open and emits a `console.warn`. Do **not** deploy to production without the migration.
+Until 0003 is applied, the function fails open with a `console.warn` so dev work isn't blocked. **Do not deploy to production without 0003 applied.**
+
+Garbage collection (`public_profile_rate_limit_gc`) is called opportunistically from this Edge Function with `Math.random() < 0.001`. At any non-trivial QPS this drains stale buckets without scheduling pg_cron. The ~1-in-1000 user pays a few milliseconds of inline gc latency.
 
 ## Deploy
 

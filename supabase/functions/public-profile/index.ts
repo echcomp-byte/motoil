@@ -72,6 +72,7 @@ Deno.serve(async (req) => {
 
   try {
     const data = await loadProfile(userId);
+    await maybeGarbageCollect();
     return json(data, 200);
   } catch (err) {
     console.error(
@@ -84,10 +85,11 @@ Deno.serve(async (req) => {
 async function checkRateLimit(
   token: string,
 ): Promise<"ok" | "limited" | "table_missing"> {
-  const minuteBucket = Math.floor(Date.now() / 60_000);
+  // Migration 0003: function is 1-arg; minute_bucket is computed inside
+  // the SECURITY DEFINER body so the caller cannot skew bucket boundaries
+  // (review B2 on issue #5).
   const { data, error } = await supabase.rpc("public_profile_rate_limit_hit", {
     p_token: token,
-    p_minute_bucket: minuteBucket,
   });
 
   if (error) {
@@ -104,6 +106,30 @@ async function checkRateLimit(
 
   const hits = typeof data === "number" ? data : 0;
   return hits > RATE_LIMIT_PER_MINUTE ? "limited" : "ok";
+}
+
+// Probabilistic gc — replaces pg_cron (migration 0003, review S1). At
+// ~0.1% per request, gc fires often enough at any non-trivial QPS to
+// drain stale buckets without an extension dependency. Awaited inline so
+// the worker isn't terminated before it runs; the user-visible latency
+// hit lands on roughly 1-in-1000 requests.
+const GC_PROBABILITY = 0.001;
+
+async function maybeGarbageCollect(): Promise<void> {
+  if (Math.random() >= GC_PROBABILITY) return;
+  const { data, error } = await supabase.rpc("public_profile_rate_limit_gc");
+  if (error) {
+    if (
+      error.code !== "42883" && // function does not exist (migration not applied yet)
+      error.code !== "42P01"    // table does not exist
+    ) {
+      console.warn(`[public-profile] gc_failed: ${error.message}`);
+    }
+    return;
+  }
+  if (typeof data === "number" && data > 0) {
+    console.log(`[public-profile] gc_pruned rows=${data}`);
+  }
 }
 
 async function resolveToken(token: string): Promise<string | null> {
