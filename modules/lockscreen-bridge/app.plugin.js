@@ -1,6 +1,7 @@
 const { createRunOncePlugin } = require('@expo/config-plugins');
 const withAppGroup = require('./src/withAppGroup');
 const withAndroidWidget = require('./src/withAndroidWidget');
+const withWidgetExtensionTarget = require('./src/withWidgetExtensionTarget');
 
 const pkg = require('./package.json');
 
@@ -10,11 +11,13 @@ function withLockscreenBridge(config, props) {
   const options = {
     appGroupIdentifier: DEFAULT_APP_GROUP,
     androidWidgetReceiverClass: null,
+    iosWidgetExtensionEnabled: false,
     ...(props || {}),
   };
 
   let next = withAppGroup(config, options);
   next = withAndroidWidget(next, options);
+  next = withWidgetExtensionTarget(next, options);
   return next;
 }
 
