@@ -56,5 +56,39 @@
     "bikesSoon": "בקרוב — Dev A",
     "qrSoon": "בקרוב — Dev C",
     "settingsSoon": "בקרוב — Dev D"
+  },
+  "profile": {
+    "heading": "כרטיס חירום רפואי",
+    "subheading": "המידע נשמר מוצפן ויוצג למגיש עזרה ראשונה דרך הוידג'ט במסך הנעילה",
+    "saved": "נשמר",
+    "fields": {
+      "fullName": "שם מלא",
+      "teudatZehut": "תעודת זהות",
+      "bloodType": "סוג דם",
+      "kupatHolim": "קופת חולים",
+      "allergies": "אלרגיות",
+      "medications": "תרופות קבועות",
+      "conditions": "מצבים רפואיים"
+    },
+    "placeholders": {
+      "teudatZehut": "9 ספרות",
+      "commaSeparated": "הפרידו בפסיקים"
+    },
+    "kupatHolim": {
+      "clalit": "כללית",
+      "maccabi": "מכבי",
+      "meuhedet": "מאוחדת",
+      "leumit": "לאומית"
+    },
+    "errors": {
+      "fullNameRequired": "שם מלא הוא שדה חובה",
+      "fullNameTooLong": "השם ארוך מדי",
+      "teudatZehutInvalid": "תעודת זהות לא תקינה",
+      "itemEmpty": "פריט ריק — השמיטו או מלאו",
+      "itemTooLong": "פריט ארוך מדי (עד 40 תווים)",
+      "arrayTooLong": "ניתן להזין עד 6 פריטים",
+      "loadFailed": "טעינת הפרופיל נכשלה. נסו שוב",
+      "saveFailed": "השמירה נכשלה. נסו שוב"
+    }
   }
 }

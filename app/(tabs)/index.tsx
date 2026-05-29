@@ -1,26 +1,25 @@
-import { useTranslation } from "react-i18next";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useAuth } from "@/features/auth/useAuth";
+import { ProfileForm } from "@/features/profile";
 import { useTheme } from "@/lib/theme";
 
 export default function ProfileTab() {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const { user, signOut } = useAuth();
+
   return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]}>
-      <View style={styles.container}>
-        <Text style={[styles.title, { color: colors.text }]}>{t("tabs.profile")}</Text>
-        <Text style={[styles.email, { color: colors.textMuted }]}>{user?.email ?? ""}</Text>
-        <Pressable
-          style={[styles.button, { backgroundColor: colors.primary }]}
-          onPress={() => signOut()}
-        >
-          <Text style={[styles.buttonText, { color: colors.primaryText }]}>
-            {t("common.signOut")}
-          </Text>
-        </Pressable>
+    <SafeAreaView style={[styles.safe, { backgroundColor: colors.bg }]} edges={["bottom"]}>
+      <View style={styles.flex}>
+        <ProfileForm />
+        <View style={[styles.footer, { borderTopColor: colors.border }]}>
+          <Text style={[styles.email, { color: colors.textMuted }]}>{user?.email ?? ""}</Text>
+          <Pressable onPress={() => signOut()} hitSlop={8}>
+            <Text style={[styles.signOut, { color: colors.danger }]}>{t("common.signOut")}</Text>
+          </Pressable>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -28,14 +27,15 @@ export default function ProfileTab() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1 },
-  container: { flex: 1, padding: 24, alignItems: "center", justifyContent: "center", gap: 12 },
-  title: { fontSize: 24, fontWeight: "700" },
-  email: { fontSize: 14 },
-  button: {
-    marginTop: 24,
-    borderRadius: 8,
+  flex: { flex: 1 },
+  footer: {
+    borderTopWidth: 1,
+    paddingHorizontal: 20,
     paddingVertical: 12,
-    paddingHorizontal: 24,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-  buttonText: { fontSize: 16, fontWeight: "600" },
+  email: { fontSize: 12 },
+  signOut: { fontSize: 14, fontWeight: "600" },
 });

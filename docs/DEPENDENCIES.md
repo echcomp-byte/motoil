@@ -41,6 +41,8 @@ If you add or remove a dependency, **update this file in the same PR**.
 | `react-i18next` | `^17.0.8` | React bindings (`useTranslation`) |
 | `zod` | `^4.4.3` | runtime input validation + parsing |
 | `@tanstack/react-query` | `^5.100.14` | server-state cache + mutations. Provider mounted in `app/_layout.tsx` between Theme and Auth. Query keys live in `src/lib/supabase/queries/*.ts` per-feature (use the `profileKeys`-style factories, never inline arrays). |
+| `react-hook-form` | `^7.76.1` | form state + validation. Used in `src/features/profile/ProfileForm.tsx` with the `Controller` pattern around `TextInput` / chip-row pickers. |
+| `@hookform/resolvers` | `^5.4.0` | bridges Zod schemas into react-hook-form's `resolver` slot. `zodResolver(profileSchema)`. |
 | `react-native-qrcode-svg` | `^6.3.21` | renders the rescue-card QR as inline SVG (no native module) for the QR tab. Used by `src/features/qr/` (Dev C). |
 | `react-native-svg` | `15.15.4` | peer dep of `react-native-qrcode-svg`. Also positions us for future inline vector UI without adding a second SVG runtime. |
 | `expo-print` | `~56.0.3` | iOS UIPrintInteractionController + Android print framework. Used by the QR tab to print the rescue card to a physical printer (helmet/bike sticker workflow). No config plugin required. |

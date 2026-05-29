@@ -56,5 +56,39 @@
     "bikesSoon": "Coming soon — Dev A",
     "qrSoon": "Coming soon — Dev C",
     "settingsSoon": "Coming soon — Dev D"
+  },
+  "profile": {
+    "heading": "Emergency medical card",
+    "subheading": "Stored encrypted and shown to first responders via the lock-screen widget.",
+    "saved": "Saved",
+    "fields": {
+      "fullName": "Full name",
+      "teudatZehut": "Israeli ID",
+      "bloodType": "Blood type",
+      "kupatHolim": "Health fund",
+      "allergies": "Allergies",
+      "medications": "Regular medications",
+      "conditions": "Medical conditions"
+    },
+    "placeholders": {
+      "teudatZehut": "9 digits",
+      "commaSeparated": "Comma-separated"
+    },
+    "kupatHolim": {
+      "clalit": "Clalit",
+      "maccabi": "Maccabi",
+      "meuhedet": "Meuhedet",
+      "leumit": "Leumit"
+    },
+    "errors": {
+      "fullNameRequired": "Full name is required",
+      "fullNameTooLong": "Name is too long",
+      "teudatZehutInvalid": "Invalid Israeli ID",
+      "itemEmpty": "Empty item — remove it or fill it in",
+      "itemTooLong": "Item too long (max 40 chars)",
+      "arrayTooLong": "Up to 6 items",
+      "loadFailed": "Failed to load profile. Try again",
+      "saveFailed": "Save failed. Try again"
+    }
   }
 }
