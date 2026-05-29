@@ -3,6 +3,7 @@
     "appName": "מוטו IL",
     "save": "שמור",
     "cancel": "ביטול",
+    "delete": "מחק",
     "loading": "טוען...",
     "comingSoon": "בקרוב",
     "signOut": "התנתק"
@@ -88,6 +89,42 @@
       "arrayTooLong": "ניתן להזין עד 6 פריטים",
       "loadFailed": "טעינת הפרופיל נכשלה. נסו שוב",
       "saveFailed": "השמירה נכשלה. נסו שוב"
+    },
+    "manageContacts": "אנשי קשר לחירום",
+    "manageContactsCount_one": "{{count}} איש קשר",
+    "manageContactsCount_other": "{{count}} אנשי קשר",
+    "manageContactsCount_zero": "טרם נוספו אנשי קשר"
+  },
+  "contacts": {
+    "title": "אנשי קשר לחירום",
+    "editTitle": "פרטי איש קשר",
+    "reorderTitle": "סדר עדיפות",
+    "lead": "צוותי חירום ינסו ליצור קשר לפי הסדר הזה. עד שלושה אנשי הקשר הראשונים מופיעים בוידג'ט.",
+    "empty": "אין אנשי קשר. הוסיפו את הראשון.",
+    "addCta": "הוספה",
+    "reorderCta": "סדר",
+    "reorderLead": "הזיזו אנשי קשר למעלה ולמטה. הראשון יתקשרו אליו קודם.",
+    "deleteConfirmTitle": "למחוק את איש הקשר?",
+    "deleteConfirmBody": "{{name}} יוסר מאנשי הקשר לחירום. אפשר להוסיף שוב בכל עת.",
+    "loadFailed": "טעינת אנשי הקשר נכשלה. נסו שוב.",
+    "callPrompt": "התקשרות",
+    "fields": {
+      "name": "שם",
+      "phone": "טלפון",
+      "relation": "קרבה"
+    },
+    "placeholders": {
+      "name": "שם פרטי ומשפחה",
+      "phone": "05X-XXXXXXX",
+      "relation": "אישה / אח / חבר"
+    },
+    "errors": {
+      "nameRequired": "שם הוא שדה חובה",
+      "nameTooLong": "השם ארוך מדי",
+      "phoneRequired": "טלפון הוא שדה חובה",
+      "phoneInvalid": "מספר טלפון לא תקין (נדרש סלולרי ישראלי)",
+      "relationTooLong": "תיאור קרבה ארוך מדי",
+      "saveFailed": "השמירה נכשלה. נסו שוב."
     }
   },
   "qr": {

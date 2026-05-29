@@ -12,3 +12,15 @@ export {
   useRotatePublicToken,
   type PublicTokenRow,
 } from "./publicTokens";
+
+export {
+  contactKeys,
+  useContacts,
+  useAddContact,
+  useUpdateContact,
+  useDeleteContact,
+  useReorderContacts,
+  type ContactRow,
+  type ContactInsert,
+  type ContactUpdate,
+} from "./emergencyContacts";
