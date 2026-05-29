@@ -24,8 +24,8 @@ Go to **Settings → Secrets and variables → Actions → New repository secret
 | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` | (from GCP) | same |
 | `EXPO_TOKEN` | (from `npx eas whoami` → `eas login` → expo.dev → access token) | `eas build` / `eas submit` in CI |
 | `SUPABASE_ACCESS_TOKEN` | (from `npx supabase login` → supabase.com → account → access tokens) | future workflows that run `supabase db push` or `supabase gen types` automatically |
-| `EXPO_PUBLIC_POSTHOG_KEY` | (from PostHog Dashboard → Project Settings → Project API Key) | Phase 1 analytics — `posthog-react-native` reads this at bundle time |
-| `EXPO_PUBLIC_POSTHOG_HOST` | `https://eu.i.posthog.com` (EU cloud — matches Supabase EU residency) | PostHog endpoint; EU host avoids cross-region data transfer |
+| `EXPO_PUBLIC_POSTHOG_KEY` ✅ | (from PostHog Dashboard → Project Settings → Project API Key) — landed 2026-05-28 by PM | Phase 1 analytics — `posthog-react-native` reads this at bundle time |
+| `EXPO_PUBLIC_POSTHOG_HOST` ✅ | `https://eu.i.posthog.com` (EU cloud — matches Supabase EU residency) — landed 2026-05-28 by PM | PostHog endpoint; EU host avoids cross-region data transfer |
 | `EXPO_PUBLIC_SENTRY_DSN` | (from Sentry Dashboard → Settings → Projects → motoil → Client Keys (DSN)) | Phase 1 crash reporting — `@sentry/react-native` reads this at init |
 | `SENTRY_AUTH_TOKEN` | (from Sentry → Settings → Account → API → Auth Tokens, scope `project:releases`) | sourcemap upload during `eas build`; server-side only (NOT prefixed `EXPO_PUBLIC_`) |
 | `SENTRY_ORG` | (your Sentry org slug — visible in dashboard URL) | sourcemap upload target |
