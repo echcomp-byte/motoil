@@ -38,3 +38,53 @@ jobs:
           cache: npm
       - run: npm ci --legacy-peer-deps
       - run: npm run typecheck
+
+  # Sub-project: the public rescue page (Dev C). Standalone Next.js
+  # project with its own package.json + lockfile. Independent of the RN
+  # root's .npmrc legacy-peer-deps flag — modern npm install works
+  # straight.
+  web:
+    name: Web (Next.js)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      # Build catches issues neither typecheck nor lint will (route
+      # collection, metadata resolution, RSC boundary errors). Cheap
+      # on a 5-route project, expensive bug-class to ship without.
+      - run: npm run build
+        env:
+          # Build-time env vars used by /p/[token]. Real values live in
+          # the Vercel project; CI just needs *something* present so
+          # the build doesn't fail on URL parsing. NEXT_PUBLIC_SUPABASE_URL
+          # unset would also be fine — the page falls back to stub
+          # data — but giving it a value matches what Vercel actually
+          # does.
+          NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+
+  # Sub-project: the public-profile Edge Function (Deno). The RN root's
+  # tsc is configured to ignore supabase/functions; this job is the
+  # only type-check the function gets on a PR.
+  edge-functions:
+    name: Edge Functions (Deno)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: denoland/setup-deno@v2
+        with:
+          # Pin a major. Supabase Edge runtime tracks Deno 1.x in
+          # production today; bump in lockstep when Supabase moves.
+          deno-version: v1.x
+      - name: Type-check public-profile
+        run: deno check --config supabase/functions/public-profile/deno.json supabase/functions/public-profile/index.ts
