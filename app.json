@@ -34,7 +34,8 @@
       "expo-router",
       "expo-status-bar",
       "expo-localization",
-      "expo-apple-authentication"
+      "expo-apple-authentication",
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": false
