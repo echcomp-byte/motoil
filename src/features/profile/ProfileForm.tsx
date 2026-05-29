@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -14,7 +15,7 @@ import {
   View,
 } from "react-native";
 import { useAuth } from "@/features/auth/useAuth";
-import { useProfile, useUpdateProfile } from "@/lib/supabase/queries";
+import { useContacts, useProfile, useUpdateProfile } from "@/lib/supabase/queries";
 import {
   BLOOD_TYPE_OPTIONS,
   KUPAT_HOLIM_OPTIONS,
@@ -43,11 +44,16 @@ const EMPTY_VALUES: ProfileFormValues = {
 export function ProfileForm() {
   const { t } = useTranslation();
   const { colors } = useTheme();
+  const router = useRouter();
   const { user } = useAuth();
   const userId = user?.id;
 
   const profileQuery = useProfile(userId);
   const updateMutation = useUpdateProfile(userId ?? "");
+  // Light prefetch of contacts so the sub-page lands instantly when the user
+  // taps "manage contacts" below. Cache is shared via QueryClient.
+  const contactsQuery = useContacts(userId);
+  const contactCount = contactsQuery.data?.length ?? 0;
 
   // Saved-toast state: shown for 2s after a successful save.
   const [savedTick, setSavedTick] = useState(0);
@@ -257,6 +263,18 @@ export function ProfileForm() {
             </Text>
           )}
         </Pressable>
+
+        <Pressable
+          style={[styles.subPageLink, { borderColor: colors.border }]}
+          onPress={() => router.push("/profile-contacts")}
+        >
+          <Text style={[styles.subPageTitle, { color: colors.text }]}>
+            {t("profile.manageContacts")}
+          </Text>
+          <Text style={[styles.subPageMeta, { color: colors.textMuted }]}>
+            {t("profile.manageContactsCount", { count: contactCount })}
+          </Text>
+        </Pressable>
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -404,4 +422,14 @@ const styles = StyleSheet.create({
   },
   submitDisabled: { opacity: 0.5 },
   submitText: { fontSize: 16, fontWeight: "700" },
+  subPageLink: {
+    marginTop: 24,
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    gap: 4,
+  },
+  subPageTitle: { fontSize: 16, fontWeight: "600" },
+  subPageMeta: { fontSize: 12 },
 });

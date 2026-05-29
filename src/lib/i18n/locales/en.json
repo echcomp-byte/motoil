@@ -3,6 +3,7 @@
     "appName": "MotoIL",
     "save": "Save",
     "cancel": "Cancel",
+    "delete": "Delete",
     "loading": "Loading...",
     "comingSoon": "Coming soon",
     "signOut": "Sign out"
@@ -88,6 +89,42 @@
       "arrayTooLong": "Up to 6 items",
       "loadFailed": "Failed to load profile. Try again",
       "saveFailed": "Save failed. Try again"
+    },
+    "manageContacts": "Emergency contacts",
+    "manageContactsCount_one": "{{count}} contact",
+    "manageContactsCount_other": "{{count}} contacts",
+    "manageContactsCount_zero": "No contacts yet"
+  },
+  "contacts": {
+    "title": "Emergency contacts",
+    "editTitle": "Contact details",
+    "reorderTitle": "Priority order",
+    "lead": "Responders try contacts in this order. The first three appear in the lockscreen widget.",
+    "empty": "No contacts yet. Add your first one.",
+    "addCta": "Add",
+    "reorderCta": "Reorder",
+    "reorderLead": "Move contacts up or down. The first one is called first.",
+    "deleteConfirmTitle": "Delete this contact?",
+    "deleteConfirmBody": "{{name}} will be removed from your emergency contacts. You can add them back anytime.",
+    "loadFailed": "Failed to load contacts. Try again.",
+    "callPrompt": "Call",
+    "fields": {
+      "name": "Name",
+      "phone": "Phone",
+      "relation": "Relation"
+    },
+    "placeholders": {
+      "name": "First and last name",
+      "phone": "05X-XXXXXXX",
+      "relation": "Spouse / sibling / friend"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameTooLong": "Name is too long",
+      "phoneRequired": "Phone is required",
+      "phoneInvalid": "Invalid phone number (Israeli mobile required)",
+      "relationTooLong": "Relation is too long",
+      "saveFailed": "Save failed. Try again."
     }
   },
   "qr": {
