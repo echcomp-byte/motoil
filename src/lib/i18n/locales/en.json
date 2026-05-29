@@ -115,5 +115,74 @@
         "generic": "Could not prepare the file. Try again."
       }
     }
+  },
+  "settings": {
+    "sections": {
+      "preferences": "Preferences",
+      "account": "Account",
+      "about": "About"
+    },
+    "theme": {
+      "label": "Appearance",
+      "system": "Automatic (match device)",
+      "light": "Light",
+      "dark": "Dark",
+      "chooseTitle": "App appearance"
+    },
+    "language": {
+      "label": "Language",
+      "he": "עברית",
+      "en": "English",
+      "chooseTitle": "App language",
+      "reloadTitle": "Apply language?",
+      "reloadBody": "The app will reload to update text direction.",
+      "reloadCta": "Reload now"
+    },
+    "logout": "Sign out",
+    "logoutConfirmTitle": "Sign out?",
+    "logoutConfirmBody": "You can sign back in any time.",
+    "delete": {
+      "label": "Delete my account",
+      "confirmTitle": "Delete account?",
+      "confirmBody": "This will permanently delete your card, contacts, bikes, and QR codes. This cannot be undone.",
+      "confirmCta": "Delete account",
+      "successTitle": "Account deleted",
+      "successBody": "Thanks for riding with us. All your data has been removed.",
+      "errors": {
+        "notAvailable": "Account deletion is temporarily unavailable. Please email support@motoil.app.",
+        "generic": "We couldn't delete the account. Please try again or contact support."
+      }
+    },
+    "version": "Version",
+    "build": "Build"
+  },
+  "onboarding": {
+    "common": {
+      "next": "Next",
+      "back": "Back",
+      "skip": "Skip"
+    },
+    "welcome": {
+      "title": "Welcome to MotoIL",
+      "body": "Your digital emergency card — for every ride. When every second counts, MotoIL gives first responders the information that will save you.",
+      "cta": "Let's get started"
+    },
+    "whatIsIce": {
+      "title": "What is ICE?",
+      "body": "ICE = In Case of Emergency. A digital card with details that save time — your emergency contacts, blood type, allergies, and medications."
+    },
+    "howItSavesLives": {
+      "title": "How it saves lives",
+      "body": "Responders scan a QR code on your helmet or bike and see your card in seconds. They know who you are, who to call, and what not to give you. No phone, no internet — it's in their hands at the scene."
+    },
+    "letsBegin": {
+      "title": "Ready to start?",
+      "body": "Let's create your card now — three minutes of work, and it goes with you everywhere you ride.",
+      "cta": "Create my card"
+    },
+    "debug": {
+      "title": "Development",
+      "restart": "Restart onboarding"
+    }
   }
 }
