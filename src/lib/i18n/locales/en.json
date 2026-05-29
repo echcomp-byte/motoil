@@ -54,8 +54,40 @@
     "settings": "Settings"
   },
   "placeholders": {
-    "bikesSoon": "Coming soon — Dev A",
     "settingsSoon": "Coming soon — Dev D"
+  },
+  "bikes": {
+    "lead": "The bike marked primary appears in the emergency widget and on the public QR card.",
+    "empty": "No bikes added yet.",
+    "addCta": "Add a bike",
+    "primaryBadge": "Primary",
+    "loadFailed": "Failed to load bikes. Try again.",
+    "isPrimaryHint": "Shown in the widget and on the public QR card",
+    "deleteConfirmTitle": "Delete this bike?",
+    "deleteConfirmBody": "{{name}} will be removed from your digital garage. You can add it back anytime.",
+    "fields": {
+      "make": "Make",
+      "model": "Model",
+      "year": "Year",
+      "licensePlate": "License plate",
+      "isPrimary": "Primary bike"
+    },
+    "placeholders": {
+      "make": "e.g. Yamaha",
+      "model": "e.g. MT-07",
+      "year": "1999-2026",
+      "licensePlate": "1234567 or 12345678"
+    },
+    "errors": {
+      "makeRequired": "Make is required",
+      "makeTooLong": "Make is too long",
+      "modelRequired": "Model is required",
+      "modelTooLong": "Model is too long",
+      "yearInvalid": "Invalid year",
+      "yearOutOfRange": "Year out of range (1900-now)",
+      "licensePlateInvalid": "Invalid license plate (7 or 8 digits)",
+      "saveFailed": "Save failed. Try again."
+    }
   },
   "profile": {
     "heading": "Emergency medical card",
