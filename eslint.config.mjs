@@ -16,4 +16,21 @@ export default [
       "supabase/migrations/",
     ],
   },
+  {
+    // Node scripts run on the host machine, not in RN — give them Node globals
+    // so things like Buffer / process / require don't trip no-undef.
+    files: ["scripts/**/*.js"],
+    languageOptions: {
+      globals: {
+        Buffer: "readonly",
+        process: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        console: "readonly",
+        require: "readonly",
+        module: "readonly",
+        exports: "readonly",
+      },
+    },
+  },
 ];
