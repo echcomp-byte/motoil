@@ -13,6 +13,33 @@ const TEMPLATES_DIR = path.dirname(
   require.resolve("../templates/ios/MotoILWidget/Info.plist"),
 );
 
+// Whitelist of file extensions the widget extension can legitimately ship.
+// Anything else in templates/ is assumed to be tooling debris (Ruflo's
+// ruvector.db, .DS_Store, editor swap files, etc.) and silently skipped.
+const ALLOWED_EXTENSIONS = new Set([
+  ".swift",
+  ".plist",
+  ".entitlements",
+  ".json",
+  ".png",
+  ".pdf",
+]);
+
+function copyFilter(src) {
+  const stat = fs.statSync(src);
+  if (stat.isDirectory()) {
+    const base = path.basename(src);
+    // .xcassets is itself a directory bundle Xcode treats as a unit; pass through.
+    if (base.endsWith(".xcassets")) return true;
+    // Skip hidden dirs and node_modules — common debris.
+    if (base.startsWith(".")) return false;
+    if (base === "node_modules") return false;
+    return true;
+  }
+  const ext = path.extname(src).toLowerCase();
+  return ALLOWED_EXTENSIONS.has(ext);
+}
+
 module.exports = function withWidgetExtensionResources(config, options) {
   if (!options || options.iosWidgetExtensionEnabled !== true) {
     return config;
@@ -38,6 +65,7 @@ module.exports = function withWidgetExtensionResources(config, options) {
         recursive: true,
         force: true,
         errorOnExist: false,
+        filter: copyFilter,
       });
 
       return cfg;
