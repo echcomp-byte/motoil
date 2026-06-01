@@ -44,12 +44,18 @@ function RootGuard() {
   const router = useRouter();
   const { value: hasSeenOnboarding } = useHasSeenOnboarding();
 
+  const firstSegment = segments[0];
+  const inAuthGroup = firstSegment === "(auth)";
+  const inOnboardingGroup = firstSegment === "(onboarding)";
+  const inPublicGroup = firstSegment === "(public)";
+
   useEffect(() => {
+    // (public) is unguarded by design — lock-screen widget deep links + QR public-card scans
+    // must paint without a session. Early-return BEFORE the loading gate so a deep link arriving
+    // during auth bootstrap doesn't get bounced through router.replace and flicker.
+    if (inPublicGroup) return;
     if (loading) return;
     if (hasSeenOnboarding === null) return;
-    const firstSegment = segments[0];
-    const inAuthGroup = firstSegment === "(auth)";
-    const inOnboardingGroup = firstSegment === "(onboarding)";
     if (!session && !inAuthGroup) {
       router.replace("/(auth)/login");
     } else if (session && inAuthGroup) {
@@ -57,9 +63,11 @@ function RootGuard() {
     } else if (session && !hasSeenOnboarding && !inOnboardingGroup) {
       router.replace("/(onboarding)/welcome");
     }
-  }, [session, loading, hasSeenOnboarding, segments, router]);
+  }, [session, loading, hasSeenOnboarding, inAuthGroup, inOnboardingGroup, inPublicGroup, router]);
 
-  if (loading || hasSeenOnboarding === null) {
+  // (public) routes also bypass the splash spinner — a paramedic in triage cannot wait 200ms
+  // for the AuthProvider to bootstrap before seeing the rescue card.
+  if ((loading || hasSeenOnboarding === null) && !inPublicGroup) {
     return (
       <View style={[styles.splash, { backgroundColor: colors.bg }]}>
         <ActivityIndicator size="large" color={colors.primary} />
