@@ -183,6 +183,21 @@
         "shareUnavailable": "Sharing isn't available on this device.",
         "generic": "Could not prepare the file. Try again."
       }
+    },
+    "expiry": {
+      "label": "Code expiry",
+      "title": "Choose an expiry",
+      "subtitle": "When the code expires, it will be replaced with a new one the next time you open the app. You will need to print a new sticker.",
+      "cancel": "Cancel",
+      "neverHint": "The code stays valid until you replace it manually.",
+      "expiresOn": "Expires {{date}}",
+      "preset": {
+        "never": "Never expires",
+        "1w": "1 week",
+        "1m": "1 month",
+        "3m": "3 months",
+        "1y": "1 year"
+      }
     }
   },
   "settings": {

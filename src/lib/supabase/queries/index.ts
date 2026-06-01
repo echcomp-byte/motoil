@@ -10,6 +10,7 @@ export {
   publicTokenKeys,
   usePublicToken,
   useRotatePublicToken,
+  useSetTokenExpiry,
   type PublicTokenRow,
 } from "./publicTokens";
 
