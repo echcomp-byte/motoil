@@ -4,11 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/features/auth/useAuth";
 import { useTheme } from "@/lib/theme";
-import { usePublicToken, useRotatePublicToken } from "@/lib/supabase/queries";
+import { usePublicToken, useRotatePublicToken, useSetTokenExpiry } from "@/lib/supabase/queries";
 import { QRCard, type QRCardHandle } from "./QRCard";
 import { RotateConfirmModal } from "./RotateConfirmModal";
+import { ExpiryPicker } from "./ExpiryPicker";
 import { buildQrUrl } from "./qrUrl";
 import { printRescueCard, shareRescueCard } from "./qrShare";
+import { detectPreset, type ExpiryPreset } from "./expiry";
 
 type Action = "print" | "share";
 
@@ -20,7 +22,10 @@ export function QRScreen() {
 
   const tokenQuery = usePublicToken(userId);
   const rotate = useRotatePublicToken(userId ?? "");
+  const setExpiry = useSetTokenExpiry(userId ?? "");
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const [expiryOpen, setExpiryOpen] = useState(false);
+  const [pendingPreset, setPendingPreset] = useState<ExpiryPreset | null>(null);
   const [busy, setBusy] = useState<Action | null>(null);
   const qrCardRef = useRef<QRCardHandle>(null);
 
@@ -29,6 +34,18 @@ export function QRScreen() {
       await rotate.mutateAsync();
     } finally {
       setConfirmOpen(false);
+    }
+  };
+
+  const onSelectExpiry = async (preset: ExpiryPreset) => {
+    setPendingPreset(preset);
+    try {
+      await setExpiry.mutateAsync(preset);
+      setExpiryOpen(false);
+    } catch {
+      Alert.alert(t("qr.action.error.title"), t("qr.action.error.generic"));
+    } finally {
+      setPendingPreset(null);
     }
   };
 
@@ -102,6 +119,12 @@ export function QRScreen() {
                   colors={colors}
                 />
               </View>
+              <ExpiryRow
+                expiresAt={tokenQuery.data.expires_at}
+                onPress={() => setExpiryOpen(true)}
+                disabled={busy !== null || rotate.isPending}
+                colors={colors}
+              />
               <Pressable
                 onPress={() => setConfirmOpen(true)}
                 style={[styles.actionBtn, { borderColor: colors.border }]}
@@ -122,7 +145,59 @@ export function QRScreen() {
         onCancel={() => setConfirmOpen(false)}
         onConfirm={onConfirmRotate}
       />
+      <ExpiryPicker
+        visible={expiryOpen}
+        current={detectPreset(tokenQuery.data?.expires_at ?? null)}
+        pendingPreset={pendingPreset}
+        onSelect={onSelectExpiry}
+        onCancel={() => setExpiryOpen(false)}
+      />
     </SafeAreaView>
+  );
+}
+
+function ExpiryRow({
+  expiresAt,
+  onPress,
+  disabled,
+  colors,
+}: {
+  expiresAt: string | null;
+  onPress: () => void;
+  disabled: boolean;
+  colors: { primary: string; border: string; text: string; textMuted: string; surface: string };
+}) {
+  const { t, i18n } = useTranslation();
+  const preset = detectPreset(expiresAt);
+  // Localised date string for the secondary label. Hebrew gets dd/MM/yyyy
+  // (matches Israeli convention), English gets the platform default.
+  const dateLabel = expiresAt
+    ? new Date(expiresAt).toLocaleDateString(i18n.language === "he" ? "he-IL" : "en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : null;
+  const primary = preset ? t(`qr.expiry.preset.${preset}`) : dateLabel ?? "";
+  const secondary = expiresAt ? t("qr.expiry.expiresOn", { date: dateLabel }) : t("qr.expiry.neverHint");
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      accessibilityRole="button"
+      accessibilityLabel={t("qr.expiry.label")}
+      style={[
+        styles.expiryRow,
+        { borderColor: colors.border, backgroundColor: colors.surface },
+        disabled ? styles.disabled : null,
+      ]}
+    >
+      <View style={styles.expiryLabels}>
+        <Text style={[styles.expiryPrimary, { color: colors.text }]}>{primary}</Text>
+        <Text style={[styles.expirySecondary, { color: colors.textMuted }]}>{secondary}</Text>
+      </View>
+      <Text style={[styles.expiryChevron, { color: colors.textMuted }]}>›</Text>
+    </Pressable>
   );
 }
 
@@ -197,4 +272,18 @@ const styles = StyleSheet.create({
   },
   actionText: { fontSize: 15, fontWeight: "600" },
   disabled: { opacity: 0.5 },
+  expiryRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 10,
+    borderWidth: 1,
+    minHeight: 56,
+  },
+  expiryLabels: { flex: 1 },
+  expiryPrimary: { fontSize: 15, fontWeight: "600" },
+  expirySecondary: { fontSize: 12, marginTop: 2 },
+  expiryChevron: { fontSize: 24, fontWeight: "300", marginHorizontal: 4 },
 });
