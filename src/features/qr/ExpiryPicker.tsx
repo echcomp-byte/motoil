@@ -47,7 +47,7 @@ export function ExpiryPicker({ visible, current, pendingPreset, onSelect, onCanc
                     styles.row,
                     {
                       borderColor: isCurrent ? colors.primary : colors.border,
-                      backgroundColor: isCurrent ? "#fff5f5" : colors.bg,
+                      backgroundColor: isCurrent ? colors.primaryTint : colors.bg,
                     },
                   ]}
                 >
