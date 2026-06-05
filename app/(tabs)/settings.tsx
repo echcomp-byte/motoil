@@ -10,14 +10,16 @@ import { deleteMyAccount } from "@/features/settings/deleteAccount";
 import i18nInstance from "@/lib/i18n";
 import { ensureRTL } from "@/lib/i18n/rtl";
 import { setStoredLanguage, type Language } from "@/lib/i18n/storage";
+import { useUpdateProfile } from "@/lib/supabase/queries";
 import { useTheme, type ThemeMode } from "@/lib/theme";
 
 export default function SettingsTab() {
   const { t, i18n } = useTranslation();
   const { colors, mode, setMode } = useTheme();
   const router = useRouter();
-  const { signOut } = useAuth();
+  const { user, signOut } = useAuth();
   const { reset } = useHasSeenOnboarding();
+  const updateProfile = useUpdateProfile(user?.id ?? "");
   const currentLanguage: Language = i18n.language === "en" ? "en" : "he";
 
   const version = Constants.expoConfig?.version ?? "—";
@@ -93,6 +95,17 @@ export default function SettingsTab() {
         style: "destructive",
         onPress: async () => {
           await setStoredLanguage(next);
+          // Write-through to profiles.locale so Dev B's widget-snapshot writer picks up the
+          // change (issue #27 part B). Best-effort: degraded gracefully if the write fails —
+          // the local UI change still applies.
+          if (user?.id) {
+            try {
+              await updateProfile.mutateAsync({ locale: next });
+            } catch (err) {
+              // TODO(post-day-15): forward to Sentry.captureException when init lands
+              if (__DEV__) console.warn("[settings] locale write-through failed:", err);
+            }
+          }
           await i18nInstance.changeLanguage(next);
           // ensureRTL reads stored language; reloadAsync fires inside if RTL must flip
           await ensureRTL();
