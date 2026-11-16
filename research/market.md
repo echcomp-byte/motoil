@@ -9,6 +9,10 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 | 2026-11-16 | Neighbour recommendation link for local trades (working name: VouchLink) | P1 | 22/25 | test this week |
 | 2026-11-16 | Boost commission audit for barbers and stylists (working name: Boost Audit) | P2 | 19/25 | backup |
 | 2026-11-16 | Trip close-out checklist for Turo hosts (working name: Trip Closeout) | P3 | 20/25 | novelty doubtful, check FleetSnap first |
+| 2026-11-16 | Done-for-you migration off Booksy/Vagaro for salons | P13 | 16/25 | below bar, mentioned on request |
+| 2026-11-16 | Subscription finder from uploaded statements, no bank link | P6 | 16/25 | below bar, mentioned on request |
+| 2026-11-16 | One-time-fee time clock for 1-3 employees | P17 | 15/25 | below bar, mentioned on request |
+| 2026-11-16 | Parcel weight proof against carrier adjustments for resellers | P11 | 15/25 | below bar, mentioned on request |
 
 ## Markets to stop watching
 
