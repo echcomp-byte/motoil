@@ -9,9 +9,9 @@ App Store reviews have no per-review permalink: each quote lists review id, revi
 
 | # | Pain | Who | Apps | Reviewers | Pays today | Score /25 | Status | Seen in runs |
 |---|------|-----|------|-----------|------------|-----------|--------|--------------|
-| P1 | Local service businesses must pay $89-179/month just to reply to neighbours asking for a pro | plumbers, painters, electricians, pet sitters | Nextdoor | ~45 | yes | 22 | PITCHED (idea 1) | 1 |
-| P2 | Booking marketplace charges 20-50% "new client" commission on the pro's own or referred clients | barbers, stylists, spa owners | Booksy, Vagaro, Fresha | ~11 | yes | 19 | PITCHED (idea 2) | 1 |
-| P3 | Hosts lose fees and claims over the 24-hour reporting window; no guest screening | Turo hosts | Turo | ~12 | yes (platform cut) | 20 | PITCHED (idea 3, novelty doubtful) | 1 |
+| P1 | Local service businesses must pay $89-179/month just to reply to neighbours asking for a pro | plumbers, painters, electricians, pet sitters | Nextdoor | ~45 | yes | 22 | PITCHED (idea 1) |2 — run 2: ~29 reviewers again, prices cited up to $300-700/month for several categories |
+| P2 | Booking marketplace charges 20-50% "new client" commission on the pro's own or referred clients | barbers, stylists, spa owners | Booksy, Vagaro, Fresha | ~11 | yes | 19 | PITCHED (idea 2) |2 — run 2: 4 Booksy reviewers, none on Vagaro |
+| P3 | Hosts lose fees and claims over the 24-hour reporting window; no guest screening | Turo hosts | Turo | ~12 | yes (platform cut) | 20 | PITCHED (idea 3, novelty doubtful) |2 — run 2: 3 repeats, weak |
 | P4 | Sellers film their own packing and still lose "not as described" disputes | resellers | eBay, Poshmark, Mercari, Depop | ~40 | no | 20 | KILLED: SurePack, PackVOD, PackageProof already sell this | 1 |
 | P5 | Mileage tracker silently stops recording; MileIQ price rise $90 to $140 | self-employed drivers, realtors | MileIQ, QuickBooks | ~26 + ~23 | yes | 19 | KILLED: crowded (Everlance, Stride, Driversnote; TripLog reported free) and native GPS is hard for a no-code build | 1 |
 | P6 | Subscription canceller finds few subscriptions and cannot cancel them | consumers | Rocket Money | ~58 | yes ($7-15/mo) | 16 | KILLED: needs bank data or concierge labour; many rivals | 1 |
@@ -21,10 +21,10 @@ App Store reviews have no per-review permalink: each quote lists review id, revi
 | P10 | Splitwise free tier capped; users only want to record offline payments | friends, roommates | Splitwise | ~22 | refuse to pay | 12 | KILLED: no willingness to pay, free clones exist | 1 |
 | P11 | Shipping weight auto-assigned, post-sale carrier adjustments wipe out profit | low-margin sellers | eBay, Mercari, Depop | ~24 | no | 15 | WATCH | 1 |
 | P12 | Cross-listing auto-delist unreliable, double sales | multi-platform resellers | Vendoo | ~7 | yes ($599/yr cited) | 15 | WATCH: clear payment proof, but hard build and funded rivals | 1 |
-| P13 | Want to leave a booking platform but migration is too painful | salon and spa owners | Vagaro, Booksy, GlossGenius, Square | ~6 | yes | 16 | WATCH: possible service add-on to idea 2 | 1 |
+| P13 | Want to leave a booking platform but migration is too painful | salon and spa owners | Vagaro, Booksy, GlossGenius, Square | ~6 | yes | 16 | WATCH: possible service add-on to idea 2 |2 — run 2: 5 reviewers (GlossGenius, Vagaro) |
 | P14 | Daycare parents lack bulk photo download, itemised invoices, message records | tuition-paying parents | Procare, brightwheel | ~12 | no | 13 | WATCH | 1 |
 | P15 | Paying patrons cannot find or resume the content they pay for | Patreon members | Patreon, Kajabi | ~26 | no | 12 | KILLED: platform-only fix | 1 |
-| P16 | Payout holds and delays | small sellers and contractors | eBay, Poshmark, Mercari, Depop, Wave, QuickBooks | ~45 | fees | 11 | KILLED: underwriting problem | 1 |
+| P16 | Payout holds and delays | small sellers and contractors | eBay, Poshmark, Mercari, Depop, Wave, QuickBooks | ~45 | fees | 11 | KILLED: underwriting problem |2 — run 2: ~13 Square reviewers with frozen funds ($2,200, $729, $390) |
 | P17 | Time clock loses time, timecards fixed by hand | field-service owners | Housecall Pro, Jobber, FreshBooks, Homebase | ~6 | yes | 14 | WATCH | 1 |
 | P18 | YouTube filtering and transcript export | heavy YouTube users | Hacker News | 4 | no | 11 | KILLED: weak, no payment signal | 1 |
 | P19 | Restaurant food-safety logs faked or forgotten across stores | multi-store operators | Hacker News | 1 | unknown | n/a | WATCH: single comment | 1 |
@@ -63,3 +63,52 @@ ClassDojo https://apps.apple.com/us/app/classdojo/id552602056
 - P12 [14633911817] Vendoo, 2026-10-06, Urnicnamehasbeenchosen: "What I got for my $599 yearly subscription was a messed up inventory and a bunch of excuses from their customer service."
 
 Other cluster quotes came from reader summaries that reported machine-checking them; only the quotes listed above were re-checked in the final pass.
+
+## Run 2 — 2026-11-17
+
+Window: 2026-10-18 to 2026-11-16. Source: 2,130 App Store reviews rated 1-3 stars across 12 new or kept categories (lead marketplaces, booking, gig drivers, freelancers, tutors, pet care, hosts, construction, restaurant owners, trucking, events, care). 777 kept after filtering consumer-side noise. Hacker News skipped (on the stop-watching list). Gridwise, Cambly and one review feed returned HTTP 403.
+
+| # | Pain | Who | Apps | Reviewers | Pays today | Score /25 | Status | Seen in runs |
+|---|------|-----|------|-----------|------------|-----------|--------|--------------|
+| P20 | Pay per lead for leads sold to 4-5 pros, fake or dead leads, wrong-lead charges refunded only as credits or not at all | home-service pros | Thumbtack, Angi, Yelp | ~40 distinct (25 shared leads, 24 fake, 19 no dispute path, overlapping) | yes: $30-300 per lead, up to $1,500/month | 22 | PITCHED (idea 4) | 1 |
+| P21 | Deactivated or locked out with no explanation and a dead-end appeal | gig drivers | Uber, DoorDash, Instacart, Flex, Spark | ~24 | lawyers, arbitration | 20 | PITCHED (idea 5, weak moat) | 1 |
+| P22 | Airbnb policy from 2026-11-20 bans rental agreements, ID copies, waivers, checkout chores | short-term rental hosts | Airbnb | ~22 | 15.5% host fee | 17 | KILLED as a checker: Airbnb ships its own house-rules checker; screening tools (Truvi, Autohost, SuiteOp) already serve direct bookings | 1 |
+| P23 | Airbnb host fee 15.5%, hosts moving to direct booking | hosts | Airbnb, Vrbo | ~15 | 15.5% | 14 | KILLED: direct-booking software is crowded | 1 |
+| P24 | Billing continues after cancel, cap or hidden status | local businesses | Yelp, Thumbtack, Angi | ~13 | $150-1,500 | 15 | WATCH: could fold into idea 4 | 1 |
+| P25 | Yelp hides genuine 5-star reviews | local businesses | Yelp | ~12 | $1,500/month ads | 10 | KILLED: platform-only | 1 |
+| P26 | Ratings and metric hits outside the driver's control, no dispute path | gig drivers | all five | ~17 | no | 15 | WATCH: pairs with P21 | 1 |
+| P27 | Paid less than the offer shown; drivers screenshot every offer as proof | gig drivers | Instacart, DoorDash, Uber, Flex | ~10 | no | 15 | WATCH | 1 |
+| P28 | Paid truck GPS routes badly, features moved to higher tiers | truck drivers | Trucker Path | ~20 | $20-30/month | 13 | KILLED: needs truck map data | 1 |
+| P29 | Pay upfront for bids or messaging and get no jobs | cleaners, caregivers | Turno, Care.com | ~10 | $19-130 | 12 | KILLED: marketplace liquidity problem | 1 |
+| P30 | Platform takes 20-25% and pays 48 hours late | pet sitters | Rover | ~8 | 20% | 11 | KILLED: off-platform contact gets sitters banned | 1 |
+| P31 | Hosts lose damage claims and refund disputes | hosts | Airbnb | ~14 | fees | 14 | WATCH: same shape as P3 | 1 |
+
+Recurring across both runs: P1 (Nextdoor pay-to-reply), P2 (Booksy Boost), P13 (salon migration), P16 (payout holds). None at 3 runs yet.
+
+### Verified quotes, run 2 (exact substrings of the pulled reviews)
+
+App pages: Thumbtack for Professionals https://apps.apple.com/us/app/thumbtack-for-professionals/id908795016 ·
+Yelp for Business https://apps.apple.com/us/app/yelp-for-business-app/id936983378 ·
+Uber Driver https://apps.apple.com/us/app/uber-driver-drive-deliver/id1131342792 ·
+DoorDash Dasher https://apps.apple.com/us/app/doordash-dasher/id1451754591 ·
+Spark Driver https://apps.apple.com/us/app/spark-driver/id1483998235 ·
+Airbnb https://apps.apple.com/us/app/airbnb/id401626263 ·
+Instacart Shopper https://apps.apple.com/us/app/instacart-shopper-earn-money/id1454056744 ·
+Square POS https://apps.apple.com/us/app/square-point-of-sale-pos/id335393788
+
+- P20 [14790956819] Thumbtack Pro, 2026-11-14, CharlieA1016: "They overcharge for leads yet give the same lead to 4-5 people. It honestly sucks."
+- P20 [14783045561] Thumbtack Pro, 2026-11-12, mira123£: "Instead, they only issue in-app credits, which just get drained again on more bad leads."
+- P20 [14772120837] Thumbtack Pro, 2026-11-09, nick13764: "I was even charged for a lead outside my service area, and my refund was denied."
+- P20 [14718213696] Thumbtack Pro, 2026-10-27, joe75854478: "75 leads and only 2 hires this is the worst app I have ever spent money on"
+- P20 [14758447381] Yelp for Business, 2026-11-06, Sam Roggers: "I’ve spent over 1k in yelp business and haven’t gotten a single legit lead."
+- P20 [14767314425] Yelp for Business, 2026-11-08, Rams1245: "I’m spending $1500 a month and 90% of the leads are trash. But the other 10% is decent enough to make it worth while."
+- P21 [14747111430] Uber Driver, 2026-11-03, Quinasia Douglas: "without Uber ever identifying which document was allegedly fraudulent or providing a meaningful opportunity to resolve the issue."
+- P21 [14790194436] Spark Driver, 2026-11-14, annoyd19774: "emailed support and have filed appeals but only received generic replies telling me that my account remains deactivated."
+- P21 [14766597418] DoorDash Dasher, 2026-11-08, gkoeowke: "they genuinely suck at doing their appeals, they dont read the appeals as i stated my reasons clearly"
+- P21 [14703130641] DoorDash Dasher, 2026-10-23, AirBroker: "I got attorneys to represent me and immediately after they closed my account"
+- P22 [14710750508] Airbnb, 2026-10-25, Asbie2216: "AirBNB has taken away the ability to screen a guest using their legal ID."
+- P22 [14695666096] Airbnb, 2026-10-21, Peregrine1974: "Your town requires you to get ID of renters - nope, not allowed."
+- P23 [14698491058] Airbnb, 2026-10-22, GraceGS1987: "Two are already gone, and I now book through VRBO and my own direct site."
+- P27 [14761739197] Instacart Shopper, 2026-11-07, MsTonyaR: "Screenshot every batch you get because they will steal your money after you’re done shopping."
+- P16 [14780534085] Square POS, 2026-11-11, KDOutdoorsol: "A customer paid me a $2,200 deposit for a job, and Square restricted my account, leaving me completely unable to access the funds."
+- P1 [14702530762] Nextdoor, 2026-10-23, Uchiha86: "I can't afford $300-$500 a month just to comment on someone's posts throwing my name in a hat and they might not even respond."

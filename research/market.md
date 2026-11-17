@@ -13,10 +13,107 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 | 2026-11-16 | Subscription finder from uploaded statements, no bank link | P6 | 16/25 | below bar, mentioned on request |
 | 2026-11-16 | One-time-fee time clock for 1-3 employees | P17 | 15/25 | below bar, mentioned on request |
 | 2026-11-16 | Parcel weight proof against carrier adjustments for resellers | P11 | 15/25 | below bar, mentioned on request |
+| 2026-11-17 | Lead ledger and refund claims for pay-per-lead pros (working name: LeadLedger) | P20 | 22/25 | test this week |
+| 2026-11-17 | Deactivation appeal kit for gig drivers (working name: Reinstate) | P21 | 20/25 | weak moat, free guides and ChatGPT exist |
+| 2026-11-17 | Airbnb house-rules compliance checker | P22 | 17/25 | killed: Airbnb ships its own checker |
 
 ## Markets to stop watching
 
 - 2026-11-16: Hacker News phrase mining for non-developer ideas. 403 comments gave two small clusters and no payment signal.
+
+---
+
+## Run 2 — 2026-11-17
+
+### Scope and limits
+
+- 2,130 App Store reviews rated 1-3 stars, 2026-10-18 to 2026-11-16, 12 categories; 777 kept after filtering. Hacker News skipped.
+- Blocked: Gridwise and Cambly lookups and one review feed returned HTTP 403. Reddit, X, G2, Capterra, Trustpilot still unreachable.
+- Only two ideas passed the 18/25 bar and the novelty check this run.
+
+### Market map
+
+1. **Who pays whom.** Home-service pros pay lead marketplaces per lead: reviewers cite $30-300 per Thumbtack lead and Yelp ad spend of $500-1,500/month. Via search, one blog puts cost per booked job at about $350 on Thumbtack and $542 on Angi ([djcontractormarketing.com](https://djcontractormarketing.com/thumbtack-vs-angi/)); unverified.
+2. **Biggest fees seen.** Airbnb host fee 15.5% (reviews, one says raised from 3%); Rover 20-25%; Booksy Boost 30%; Trucker Path $20-30/month; Nextdoor $89-150 per category and $300-700/month for several.
+3. **Event of the month.** Airbnb's new house-rules policy applies to reservations booked from 2026-11-20 ([Airbnb Resource Center](https://www.airbnb.com/resources/hosting-homes/a/important-changes-to-house-rules-21)); guides say it bans most rental agreements, ID copies and host fines. About 22 hosts complained in 30 days.
+4. **Under pressure.** Uber's promised deactivation appeal path is disputed by drivers ([Fast Company](https://www.fastcompany.com/91553175/uber-promised-drivers-a-way-to-appeal-deactivations-they-say-it-doesnt-exist)); Square draws about 13 frozen-funds complaints.
+5. **Pay a lot and still complain.** Pay-per-lead pros (about 40), Nextdoor businesses (about 29, second run), Airbnb hosts (about 37 across fee and policy), Trucker Path subscribers (about 20).
+
+### Idea 4 — LeadLedger (working name) — 22/25
+
+**Pitch.** A contractor forwards every Thumbtack, Angi or Yelp lead notification to one address; the tool logs cost and outcome, shows the real cost per booked job, and drafts the refund request for every lead that qualifies.
+
+**Gap.** Pros are charged per lead whether or not it is real, in area or already hired, and say refunds come as credits or not at all. A web search found no dedicated lead-refund tool. Housecall Pro reports cost per booked job, but as part of a full field-service suite, and does not file refund claims.
+
+**Who has the pain.** Owner-operators in handyman, remodelling and cleaning who spend $400 a week or more on leads, at the moment a charge lands for a lead that never answers.
+
+**Proof** (App Store, Thumbtack for Professionals https://apps.apple.com/us/app/thumbtack-for-professionals/id908795016):
+- "I was even charged for a lead outside my service area, and my refund was denied." — nick13764, 2026-11-09, review 14772120837
+- "Instead, they only issue in-app credits, which just get drained again on more bad leads." — mira123£, 2026-11-12, review 14783045561
+- "75 leads and only 2 hires this is the worst app I have ever spent money on" — joe75854478, 2026-10-27, review 14718213696
+
+**Score.** Frequency 5 (about 40 reviewers in 30 days) · Intensity 5 (hundreds of dollars a week) · Willingness to pay 4 (they keep spending: "I’m spending $1500 a month and 90% of the leads are trash", Rams1245, Yelp, review 14767314425) · Reachability 4 · Buildability 4.
+
+**Competitors and why they miss.** Housecall Pro and Jobber: lead inbox and reporting inside a $59+/month suite, no refund claims. Spreadsheets: what blogs recommend. The marketplaces' own refund forms: the pro must spot and argue each case.
+
+**Pricing guess (estimate).** $29/month, or 20% of refunds recovered. Reasoning: one refunded $50-160 lead pays for the month.
+
+**MVP.**
+- Core: a forwarding email address per user; Claude reads each lead email and extracts platform, price, job type and location; the pro taps hired, no reply or wrong lead; a weekly summary of cost per job; a drafted refund request per eligible lead with the platform's stated policy quoted.
+- Skip: logging in to Thumbtack or Angi, automatic claim filing, a mobile app.
+- Stack: Lovable or Claude Code, Supabase, an inbound-email service (Postmark or Mailgun), Claude API, Stripe.
+- 14 days: days 1-3 audit 5 pros' last 30 days of leads by hand; 4-8 email intake and extraction; 9-11 dashboard and refund drafts; 12-14 charge the first users.
+
+**First 10 customers.** Facebook groups for handymen, cleaners and remodelers, and contractor forums. DM: "How much did Thumbtack charge you last month for leads that never answered? I'm testing a tool that logs every lead and writes the refund requests. I'll audit your last 30 days free if you send me the lead emails."
+
+**Biggest risk and cheapest test.** Platforms may refuse refunds or pay only credits. Test this week: audit 5 pros by hand, file their refund requests, and count dollars returned.
+
+**WHAT WOULD KILL THIS IDEA?**
+- Refunds stay discretionary and are paid as credits; then only the cost-per-job report has value.
+- Lead emails do not contain price and location; not checked.
+- Pros who are angry simply quit the platform instead of auditing it.
+- Housecall Pro or Jobber add refund drafting to their lead inbox.
+- A dedicated tool exists and the search missed it.
+
+### Idea 5 — Reinstate (working name) — 20/25, weak moat
+
+**Pitch.** A deactivated driver answers ten questions and uploads their notice; the kit produces a platform-specific appeal, a demand letter and the arbitration or small-claims steps with deadlines.
+
+**Gap.** Drivers say appeals get generic replies. Free guides exist (Gridwise, law-firm blogs) and drivers already use ChatGPT for letters (via search), so the gap is packaging: the right clause, channel and deadline for each platform in one place.
+
+**Who has the pain.** Full-time drivers on Uber, DoorDash, Instacart, Flex and Spark in the first days after a deactivation or lockout.
+
+**Proof** (App Store):
+- "emailed support and have filed appeals but only received generic replies telling me that my account remains deactivated." — annoyd19774, Spark Driver, 2026-11-14, review 14790194436, https://apps.apple.com/us/app/spark-driver/id1483998235
+- "without Uber ever identifying which document was allegedly fraudulent or providing a meaningful opportunity to resolve the issue." — Quinasia Douglas, Uber Driver, 2026-11-03, review 14747111430, https://apps.apple.com/us/app/uber-driver-drive-deliver/id1131342792
+- "they genuinely suck at doing their appeals, they dont read the appeals as i stated my reasons clearly" — gkoeowke, DoorDash Dasher, 2026-11-08, review 14766597418, https://apps.apple.com/us/app/doordash-dasher/id1451754591
+
+**Score.** Frequency 5 (about 24) · Intensity 5 (income stops) · Willingness to pay 2 (they hire lawyers, but free alternatives exist) · Reachability 5 (driver subreddits and Facebook groups) · Buildability 3 (simple to build, but legal content must be right).
+
+**Competitors and why they miss.** Free guides and ChatGPT: generic, the driver must know what to ask. Law firms: slow and costly. Small-claims filing sites (via search): cover money claims, not reinstatement.
+
+**Pricing guess (estimate).** $19 one-time. Reasoning: an impulse price for someone who just lost income.
+
+**MVP.** Core: questionnaire, per-platform templates, deadline tracker, PDF pack. Skip: legal representation, any outcome promise. Stack: Lovable or Claude Code, Claude API, Stripe. 14 days: 1-4 collect each platform's appeal path and contract clauses; 5-9 questionnaire and letters; 10-12 deadline reminders; 13-14 sell 10 packs.
+
+**First 10 customers.** r/doordash_drivers, r/uberdrivers and deactivation threads in driver Facebook groups. DM: "Sorry about the deactivation. I'm building a kit that writes the appeal and demand letter for your platform with the right deadlines. Want a free one in exchange for telling me what happens?"
+
+**Biggest risk and cheapest test.** Letters may not change outcomes. Test: write 10 packs by hand for free and track reinstatements over two weeks.
+
+**WHAT WOULD KILL THIS IDEA?**
+- No measurable lift in reinstatements over a driver's own appeal.
+- It counts as legal advice in the US; needs a lawyer's view before charging.
+- One-time purchase from people who just lost their income.
+- ChatGPT does it for free and drivers know it.
+- A paid service already exists and the search missed it.
+
+### Killed this run
+
+Airbnb house-rules checker (Airbnb ships its own), direct-booking kit (crowded), gig offer ledger (about 10 reviewers, no spend), truck GPS (needs map data), Rover fee workaround (gets sitters banned), Yelp review visibility (platform-only).
+
+### Strongest quote of the night
+
+"I’m spending $1500 a month and 90% of the leads are trash. But the other 10% is decent enough to make it worth while." — Rams1245, Yelp for Business, 2026-11-08, review 14767314425
 
 ---
 
