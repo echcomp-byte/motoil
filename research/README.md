@@ -12,3 +12,5 @@ Sources reachable from the cloud environment: `itunes.apple.com`, `hn.algolia.co
 Reddit, X, G2, Capterra and Trustpilot are not reachable directly; anything from them comes through web search and is labelled as such.
 
 Rules: only real complaints with a link; quotes are checked as exact substrings of the pulled data; estimates are labelled.
+
+Recurrence rule: consecutive runs use overlapping 30-day windows, so a pain counts as "seen again" only when at least 3 reviewers post it with dates after the previous run. Check the newest review date in each pull before counting.

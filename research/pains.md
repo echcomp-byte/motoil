@@ -112,3 +112,33 @@ Square POS https://apps.apple.com/us/app/square-point-of-sale-pos/id335393788
 - P27 [14761739197] Instacart Shopper, 2026-11-07, MsTonyaR: "Screenshot every batch you get because they will steal your money after you’re done shopping."
 - P16 [14780534085] Square POS, 2026-11-11, KDOutdoorsol: "A customer paid me a $2,200 deposit for a job, and Square restricted my account, leaving me completely unable to access the funds."
 - P1 [14702530762] Nextdoor, 2026-10-23, Uchiha86: "I can't afford $300-$500 a month just to comment on someone's posts throwing my name in a hat and they might not even respond."
+
+## Run 3 — 2026-11-18
+
+Window: 2026-10-19 to 2026-11-17. Source: 1,207 App Store reviews rated 1-3 stars; 681 kept after filtering. New categories: marketplace sellers, freelance tax and banking, hiring and shift work, real estate agents, HOA and tenant portals, gym software, retail inventory, healthcare, auto repair, cleaning and lawn, events. Niche B2B apps (gym, auto repair, cleaning, real estate agent tools) had 0-3 low reviews each in 30 days: too thin to cluster.
+
+**Correction to "Seen in runs".** The newest review in tonight's pull is dated before 2026-11-16: no review was newer than run 2. The repeats of P1, P2, P13, P16 and P20 in runs 2 and 3 are therefore the same reviews read again through overlapping 30-day windows, not fresh complaints. The "2" values written in run 2 overstate recurrence. From now on a pain counts as "seen again" only when at least 3 reviewers post it with dates after the previous run. On that rule every pain is still at 1.
+
+No new pain reached 18/25 this run.
+
+| # | Pain | Who | Apps | Reviewers | Pays today | Score /25 | Status | Seen in runs |
+|---|------|-----|------|-----------|------------|-----------|--------|--------------|
+| P32 | Shift worked, pay missing or cut, no proof and no human to dispute with | gig shift workers | Instawork, Wonolo | ~14 | lose whole shifts | 15 | KILLED: same shape as the evidence ideas killed before, no spend | 1 |
+| P33 | Directory shows a doctor as in-network when they are not | patients | Zocdoc | ~12 | one "almost $800 bill" | 14 | KILLED: needs insurer data; hard to reach these people | 1 |
+| P34 | Records scattered across several branded MyChart apps | patients | MyChart | ~11 | time | 13 | KILLED: Epic-dependent, health-record apps exist | 1 |
+| P35 | Fees to pay rent or HOA dues online | tenants, owners | Resident Center, DoorLoop, RentCafe, TownSq | ~12 | $1.99-50 per payment | 11 | KILLED: fee is set by the manager; bank bill-pay already avoids it | 1 |
+| P36 | Organic reach gone unless paying for traffic or boosts | live and local sellers | Whatnot, OfferUp | ~9 | $4.99 per post, paid traffic | 13 | WATCH | 1 |
+| P37 | Fees to reach your own wages | shift workers, employees | Instawork, Gusto | ~5 | $5 + 5% | 10 | KILLED: platform-only | 1 |
+| P38 | Unfair seller reviews or strikes with no appeal | marketplace sellers | Facebook Seller, Amazon, Whatnot | ~5 | n/a | 11 | KILLED: platform-only | 1 |
+
+Re-read, not new evidence: P1 (24 business reviewers in window), P20 (about 44), P2 (3), P13 (2), P16 (8, incl. Amazon $3,500 and TikTok $700 frozen), P24 (10), P25 (9), P5 on QuickBooks (4).
+
+### Verified quotes, run 3
+
+- P32 [14778860614] Instawork, 2026-11-11, Biggy Mike 1, https://apps.apple.com/us/app/instawork-work-when-you-want/id1123819773: "I worked an entire shift for over 7+ hours just for them to say I didn’t show up"
+- P33 [14767190978] Zocdoc, 2026-11-08, scoopsss, https://apps.apple.com/us/app/zocdoc-find-and-book-doctors/id391062219: "I got bloodwork done from a place that was listed as in network. A few months after I receive an almost $800 bill."
+- P34 [14759660320] MyChart, 2026-11-06, Originaldiode, https://apps.apple.com/us/app/mychart/id382952264: "I have several hospitals and practitioners who all have different versions and names of the same Epic Mychart."
+- P35 [14741959342] Resident Center, 2026-11-02, Patrick Angus, https://apps.apple.com/us/app/resident-center/id1466854902: "I have to pay $1.99 to make an EFT payment when I know this free for them."
+- P36 [14760201506] Whatnot, 2026-11-06, lenny818181, https://apps.apple.com/us/app/whatnot-shop-sell-connect/id1488269261: "You stop using the pay for traffic and you drop from 10-20 before you paid for service to 2-4 people"
+- P16 [14705176479] TikTok Shop Seller Center, 2026-10-24, Kenny B.21, https://apps.apple.com/us/app/tiktok-shop-seller-center/id1591003012: "I made two shops and both got banned by ai pretty much for no reason and $700 just frozen"
+- P37 [14742813624] Instawork, 2026-11-02, JOC M.: "There is instant pay which costs 5 dollars with a 5% deduction"

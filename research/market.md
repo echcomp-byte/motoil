@@ -19,7 +19,21 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ## Markets to stop watching
 
+- 2026-11-18: niche B2B apps with under 5 low reviews a month on the App Store (gym, auto repair, cleaning, real-estate agent tools).
 - 2026-11-16: Hacker News phrase mining for non-developer ideas. 403 comments gave two small clusters and no payment signal.
+
+---
+
+## Run 3 — 2026-11-18
+
+- 1,207 App Store reviews rated 1-3 stars, 2026-10-19 to 2026-11-17, 11 new categories; 681 kept.
+- **No new idea passed 18/25.** Best new clusters: unpaid shifts on Instawork and Wonolo (about 14, score 15), wrong in-network listings on Zocdoc (about 12, score 14), records split across MyChart apps (about 11, score 13).
+- **Correction.** No review in tonight's pull was newer than run 2, so the repeat counts for Nextdoor, pay-per-lead and Booksy in runs 2 and 3 are the same reviews re-read, not new evidence. See `pains.md`.
+- **Yield is falling.** Runs 1, 2, 3 produced 3, 2, 0 ideas above the bar. Niche B2B apps get 0-3 low reviews a month on the App Store, so this source is close to exhausted for nightly use. Reddit, G2, Capterra and Trustpilot remain unreachable.
+- **Market notes.** Marketplace sellers report frozen funds (Amazon $3,500, TikTok Shop $700). Instawork charges $5 plus 5% for instant pay. Tenant portals charge $1.99-50 per rent payment. All from reviews.
+- Standing recommendation unchanged: test LeadLedger (idea 4) first, VouchLink (idea 1) second.
+
+**Strongest quote of the night.** "I worked an entire shift for over 7+ hours just for them to say I didn’t show up" — Biggy Mike 1, Instawork, 2026-11-11, review 14778860614
 
 ---
 
