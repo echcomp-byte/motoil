@@ -16,11 +16,24 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 | 2026-11-17 | Lead ledger and refund claims for pay-per-lead pros (working name: LeadLedger) | P20 | 22/25 | test this week |
 | 2026-11-17 | Deactivation appeal kit for gig drivers (working name: Reinstate) | P21 | 20/25 | weak moat, free guides and ChatGPT exist |
 | 2026-11-17 | Airbnb house-rules compliance checker | P22 | 17/25 | killed: Airbnb ships its own checker |
+| 2026-11-19 | One-time-price recipe keeper for Paprika leavers | P39 | 19/25 | killed on novelty: Mela, Crouton, Recipe Shelf and others |
 
 ## Markets to stop watching
 
 - 2026-11-18: niche B2B apps with under 5 low reviews a month on the App Store (gym, auto repair, cleaning, real-estate agent tools).
 - 2026-11-16: Hacker News phrase mining for non-developer ideas. 403 comments gave two small clusters and no payment signal.
+
+---
+
+## Run 4 — 2026-11-19
+
+- 2,206 App Store reviews rated 1-3 stars, 2026-11-05 to 2026-11-17, consumer categories plus tracked apps; 517 consumer reviews clustered.
+- **No new idea passed.** One strong event, killed on novelty: Paprika Recipe Manager 4 moved paid one-time features behind a subscription and drew 125 low reviews in 14 days (91 mention paying, 22 mention a replacement). Mela ($5.99 one-time, via search), Crouton, Recipe Shelf (imports Paprika files, via search), CookBook and AnyList already target these users.
+- **First real recurrence.** Nextdoor pay-to-reply (P1) drew 3 new business reviewers dated after the previous run. This supports idea 1 (VouchLink).
+- **Consumer pattern.** The month's complaints are about features moved behind subscriptions: Paprika, Flo, CapCut, MyFitnessPal, Hinge, Evernote (one reviewer cites $69 to $129 to $249.99/year). Each has established cheaper rivals, so none opens a gap for a new product.
+- Yield by run: 3, 2, 0, 0. Standing recommendation: test LeadLedger (idea 4), then VouchLink (idea 1).
+
+**Strongest quote of the night.** "I paid for features when I bought the previous version to now have them taken away in the new version. I will be looking for a replacement immediately." — Lenny5180, Paprika Recipe Manager 4, 2026-11-16, review 14799590961
 
 ---
 

@@ -142,3 +142,38 @@ Re-read, not new evidence: P1 (24 business reviewers in window), P20 (about 44),
 - P36 [14760201506] Whatnot, 2026-11-06, lenny818181, https://apps.apple.com/us/app/whatnot-shop-sell-connect/id1488269261: "You stop using the pay for traffic and you drop from 10-20 before you paid for service to 2-4 people"
 - P16 [14705176479] TikTok Shop Seller Center, 2026-10-24, Kenny B.21, https://apps.apple.com/us/app/tiktok-shop-seller-center/id1591003012: "I made two shops and both got banned by ai pretty much for no reason and $700 just frozen"
 - P37 [14742813624] Instawork, 2026-11-02, JOC M.: "There is instant pay which costs 5 dollars with a 5% deduction"
+
+## Run 4 — 2026-11-19
+
+Window: 2026-11-05 to 2026-11-17 (14 days; newest review in the feed is dated 2026-11-17). Source: 2,206 App Store reviews rated 1-3 stars across consumer categories (health and fitness, learning, family, productivity, travel, hobbies, dating and social) plus the tracked lead and booking apps. 517 consumer reviews kept after keyword filtering.
+
+No new pain passed both the 18/25 bar and the novelty check.
+
+Recurrence under the corrected rule (reviews dated after the previous run):
+- **P1 Nextdoor pay-to-reply: seen again, now 2 runs.** 3 new business reviewers on 2026-11-16 (review ids 14798921085, 14798831303, 14798522936).
+- P20 pay-per-lead: 2 new reviewers on 2026-11-16 (14798671448, 14797681044); below the 3-reviewer rule, stays at 1.
+- P2 Booksy Boost: no new reviewer.
+
+| # | Pain | Who | Apps | Reviewers | Pays today | Score /25 | Status | Seen in runs |
+|---|------|-----|------|-----------|------------|-----------|--------|--------------|
+| P39 | Forced update to version 4 moves paid one-time features (import, scanning, sync) behind a subscription | long-time one-time buyers | Paprika Recipe Manager | 125 low reviews in 14 days; 91 mention paying, 22 mention a replacement | $5-100 one-time; now about $10-15/year per reviewers | 19 | KILLED on novelty: Mela, Crouton, Recipe Shelf, CookBook, AnyList already court Paprika leavers, several with Paprika import | 1 |
+| P40 | Basic period logging buried under upsell pop-ups; Apple Health sync removed | free users, ex-subscribers | Flo | ~40 | $40-90/year asked | 12 | KILLED: crowded, Apple ships a free tracker | 1 |
+| P41 | Fitbit to Google Health migration removed features and stranded history | long-time Fitbit owners | Google Health (Fitbit), Lose It | ~20 | Premium, lifetime Lose It | 13 | KILLED: depends on Google data access | 1 |
+| P42 | Basic editing tools moved to Pro or credits | casual video editors | CapCut | ~18 | $9.99-20/month | 10 | KILLED: needs a full video editor | 1 |
+| P43 | Calorie trackers paywall barcode scanner and logging basics | dieters; one nutrition coach wants a client diary | MyFitnessPal, Lose It, Noom | ~18 | $100/year; Noom $160 per 3 months | 13 | KILLED: very crowded; coach diary is 1 reviewer | 1 |
+| P44 | Location change paywalled | travellers | Hinge | ~10 | $29.99/month | 6 | KILLED: platform-only | 1 |
+| P45 | Price doubled again | long-time note takers | Evernote | 1 with figures ($69 to $129 to $249.99/year) | $249.99/year | n/a | WATCH: single review, check next run | 1 |
+
+Also re-seen in a different app: P30 Rover commission (6 sitters).
+
+### Verified quotes, run 4
+
+- P39 [14764149664] Paprika Recipe Manager 4, 2026-11-07, KMT1733, https://apps.apple.com/us/app/paprika-recipe-manager-4/id1303222868: "Social media importing, recipe scanning, syncing across devices and clipboard importing were available in the previous versions. And now they are not available without upgrading to the premium subscription."
+- P39 [14766493805] Paprika, 2026-11-08, Genobi: "But yet another subscription bothers me. Give me a $15 dollar one time purchase to upgrade."
+- P39 [14799590961] Paprika, 2026-11-16, Lenny5180: "I paid for features when I bought the previous version to now have them taken away in the new version. I will be looking for a replacement immediately."
+- P39 [14770245622] Paprika, 2026-11-09, Nepht: "I’ve exported my recipe library and already moved to a new app."
+- P1 [14798831303] Nextdoor, 2026-11-16, Monte the Mechanic: "I have to pay $89 a month just to get mechanic jobs is wild!!"
+- P20 [14797681044] Thumbtack for Professionals, 2026-11-16, Sam 99gsjsgsh: "I got charged 62$ because a small hole ( a screw hole ) on the wall I ended up charging the customer 50$"
+- P41 [14796462644] Google Health (Fitbit), 2026-11-15, PlatoAndSo, https://apps.apple.com/us/app/google-health-fitbit/id462638897: "My sleep history is clearly there in Google Health, yet there seems to be no way to get the missing records into Apple Health."
+- P45 [14754328442] Evernote, 2026-11-05, ImranZ, https://apps.apple.com/us/app/evernote-ai-notes-notebook/id281796108: "they raised pricing from $69 to 129 a year, and now nearly doubling that to $249.99 a year!"
+- P43 [14771036253] MyFitnessPal, 2026-11-09, Ddelg12345: "push for paid subscriptions has me looking for a different diary app for me and my clients."
