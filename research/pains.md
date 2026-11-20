@@ -177,3 +177,31 @@ Also re-seen in a different app: P30 Rover commission (6 sitters).
 - P41 [14796462644] Google Health (Fitbit), 2026-11-15, PlatoAndSo, https://apps.apple.com/us/app/google-health-fitbit/id462638897: "My sleep history is clearly there in Google Health, yet there seems to be no way to get the missing records into Apple Health."
 - P45 [14754328442] Evernote, 2026-11-05, ImranZ, https://apps.apple.com/us/app/evernote-ai-notes-notebook/id281796108: "they raised pricing from $69 to 129 a year, and now nearly doubling that to $249.99 a year!"
 - P43 [14771036253] MyFitnessPal, 2026-11-09, Ddelg12345: "push for paid subscriptions has me looking for a different diary app for me and my clients."
+
+## Run 5 — 2026-11-20
+
+New source: the Israeli App Store (`research/scripts/appstore_pull_il.py`). Window: 2026-09-21 to 2026-11-18 (60 days). 473 reviews rated 1-3 stars across 40 local apps, mostly Hebrew. Israeli business tools (iCount, EZcount, Tranzila, PayPlus, Cardcom, Morning) had 0-2 low reviews: too thin. US tracked apps were not re-pulled tonight, so no recurrence check.
+
+| # | Pain | Who | Apps | Reviewers | Pays today | Score /25 | Status | Seen in runs |
+|---|------|-----|------|-----------|------------|-----------|--------|--------------|
+| P46 | Ads block time-critical bus info; route sharing and other features moved behind a paywall | commuters, soldiers | Moovit | ~89 | Moovit+ at 7 NIS/month per one reviewer | 19 | KILLED on novelty: reviewers already switch to Egg and "אוטובוס קרוב" | 1 |
+| P47 | Hebrew-only banking, card and health-fund apps lock out English, Russian and Arabic speakers | olim, foreign residents | Hapoalim, Cal, Isracard, One Zero, Maccabi, Clalit, myVisit | ~18 (25 reviews mention language) | threaten to switch bank; no figures | 18 | PITCHED (idea 6, borderline) | 1 |
+| P48 | Bus arrival times wrong, ghost buses | commuters | Moovit | ~36 | lateness | 8 | KILLED: operator data only | 1 |
+| P49 | Late or missing delivery orders, token compensation, bot support | delivery customers | Wolt, 10bis | ~34 | 8-20 NIS compensation on ~100 NIS orders | 11 | KILLED: platform-only | 1 |
+| P50 | Taxi apps: no drivers, 12 NIS cancellation fee, drivers ask to cancel and pay cash | riders | Gett, Yango | ~15 | 12 NIS fee; 80 demanded vs 58 quoted | 10 | KILLED: platform-only | 1 |
+| P51 | No human support at banks and card companies | customers | One Zero, Cal, Isracard, Hapoalim, bit, PayBox | ~14 | weeks of waiting | 8 | KILLED: platform-only | 1 |
+| P52 | Paid listings, dealer priority, stale broker listings, unexplained ad rejections | private sellers and renters | Yad2 | ~13 | not stated | 13 | WATCH | 1 |
+| P53 | Unnoticed recurring charges that are hard to cancel | consumers | Pango, Cello, Wolt+, Cal, Morning, 10bis, HopOn | ~10 | not stated | 16 | WATCH: Israeli version of P6; RiseUp and bank tools exist | 1 |
+| P54 | Orders cancelled for stock after payment | shoppers | Super-Pharm | ~8 | refunds chased | 7 | KILLED: platform-only | 1 |
+| P55 | New fees on transfers and withdrawals | users | bit, Max | ~7 | not stated | 7 | KILLED: platform-only | 1 |
+
+### Verified quotes, run 5 (exact substrings; Israeli App Store)
+
+- P47 [14601032176] Bank Hapoalim, 2026-09-27, L-TON154, https://apps.apple.com/il/app/id362123205: "Leumi already make a 5 languages, you can’t put elementary English. I’m already really think about change the bank"
+- P47 [14598593893] Maccabi, 2026-09-27, Cool464565747865, https://apps.apple.com/il/app/id379119093: "accessing appointments, test results, prescriptions, and important medical information should not depend on being fluent in Hebrew"
+- P47 [14656823996] Bank Hapoalim, 2026-10-12, איגור555: "אני שוקל ברצינות לעבור לבנק מתחרה שמציע חוויית משתמש נגישה ונוחה יותר"
+- P46 [14724829521] Moovit, 2026-10-29, Di-Staple, https://apps.apple.com/il/app/id498477945: "אני צריך לבדוק כמה רחוק האוטובוס, והוא משמיע לי פרסומת, ובסוף אני עומד שם 30 שניות ומחכה שהפרסומות יתנגנו, כשהאוטובוס שלי כבר יוצא."
+- P46 [14756427396] Moovit, 2026-11-05, עידו מאוכזב מהאפליקציה שלכם: "באמת שאין לי בעיה לשלם כמה שקלים בשביל אפליקציה טובה"
+- P53 [14640957709] Pango, 2026-10-07, Diego Jota, https://apps.apple.com/il/app/id434818173: "אתם לא יודעים שהם מחייבים אתכם כל חודש וכשרוצים לבטל זה בלתי אפשרי להשיג אותם"
+- P49 [14654430441] Wolt, 2026-10-11, קלארא, https://apps.apple.com/il/app/id943905271: "תשלמו 100 ₪ ויתנו לכם פצוי של 13.7₪"
+- P52 [14693401721] Yad2, 2026-10-21, Y.B16, https://apps.apple.com/il/app/id406318295: "נתנו קדימות לסוחרים לראות את המודעות רכב שעה לפני כל האנשים הפרטיים"

@@ -17,11 +17,70 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 | 2026-11-17 | Deactivation appeal kit for gig drivers (working name: Reinstate) | P21 | 20/25 | weak moat, free guides and ChatGPT exist |
 | 2026-11-17 | Airbnb house-rules compliance checker | P22 | 17/25 | killed: Airbnb ships its own checker |
 | 2026-11-19 | One-time-price recipe keeper for Paprika leavers | P39 | 19/25 | killed on novelty: Mela, Crouton, Recipe Shelf and others |
+| 2026-11-20 | English and Russian step-by-step companion for Hebrew-only Israeli apps (working name: Olim Screens) | P47 | 18/25 | borderline, phone translation is a free substitute |
+| 2026-11-20 | Ad-free one-stop bus arrival view for Israel | P46 | 19/25 | killed on novelty: Egg, אוטובוס קרוב |
 
 ## Markets to stop watching
 
 - 2026-11-18: niche B2B apps with under 5 low reviews a month on the App Store (gym, auto repair, cleaning, real-estate agent tools).
 - 2026-11-16: Hacker News phrase mining for non-developer ideas. 403 comments gave two small clusters and no payment signal.
+
+---
+
+## Run 5 — 2026-11-20
+
+### Scope
+
+- New source: Israeli App Store. 473 reviews rated 1-3 stars, 2026-09-21 to 2026-11-18, 40 local apps. Israeli business software had almost no low reviews, so the signal is consumer-side.
+- One idea passed the bar, narrowly.
+
+### Market map (Israel)
+
+1. **Loudest complaint.** Moovit: about 89 reviewers say ads delay bus arrival info and features moved to a paid tier (one cites 7 NIS/month). Reviewers name Egg and "אוטובוס קרוב" as where they go.
+2. **Fees creeping in.** bit and Max reviewers report new transfer and withdrawal fees; Gett charges 12 NIS for a cancellation after 30 seconds; Wolt+ costs 29 NIS/month per one reviewer.
+3. **Language gap.** Leumi's app runs in five languages since September 2026 ([Jerusalem Post](http://www.jpost.com/business-and-innovation/banking-and-finance/article-907427), via search); reviewers say Hapoalim, Cal, Isracard, One Zero and Maccabi are Hebrew-only.
+4. **Support collapse.** One Zero, Cal and Isracard reviewers report weeks without a human reply.
+5. **Marketplace friction.** Yad2 private sellers complain of dealer priority and stale broker listings (about 13).
+
+### Idea 6 — Olim Screens (working name) — 18/25, borderline
+
+**Pitch.** Pick an Israeli app and a task ("transfer money in Hapoalim", "book a specialist in Maccabi") and get annotated step-by-step screens in English or Russian; upload any screenshot and get a plain explanation of what each button does.
+
+**Gap.** Reviewers ask Hapoalim, Cal, Isracard, One Zero and Maccabi for English or Russian and are not getting it. A web search found general expat guides and bank marketing pages, no task-level companion. Phone screenshot translation exists and is free; it translates words, not what to do.
+
+**Who has the pain.** New immigrants and foreign residents in their first two years, at the moment they must do something in a bank or health-fund app alone.
+
+**Proof** (Israeli App Store):
+- "Leumi already make a 5 languages, you can’t put elementary English. I’m already really think about change the bank" — L-TON154, Bank Hapoalim, 2026-09-27, review 14601032176
+- "accessing appointments, test results, prescriptions, and important medical information should not depend on being fluent in Hebrew" — Cool464565747865, Maccabi, 2026-09-27, review 14598593893
+- "אני שוקל ברצינות לעבור לבנק מתחרה שמציע חוויית משתמש נגישה ונוחה יותר" — איגור555, Bank Hapoalim, 2026-10-12, review 14656823996
+
+**Score.** Frequency 4 (about 18 reviewers, 25 language mentions in 60 days) · Intensity 3 · Willingness to pay 2 (nobody mentions paying) · Reachability 5 (olim Facebook groups, Russian-speaking Telegram channels) · Buildability 4.
+
+**Competitors and why they miss.** Google Lens and iOS screenshot translation: free, literal, no guidance. Expat blogs: static and out of date. Leumi: solved it for its own app only.
+
+**Pricing guess (estimate).** 15 NIS/month to individuals is doubtful; more likely a sponsored model, sold to relocation firms, employers of foreign staff or aliyah organisations. Unverified.
+
+**MVP.** Core: 20 guides for the 4 most-requested apps, written from your own screenshots; a screenshot explainer using the Claude API. Skip: any login to bank apps, native app. Stack: Lovable or a simple site, Claude API. 14 days: 1-3 ask in two olim groups which tasks hurt most; 4-10 produce guides; 11-12 screenshot explainer; 13-14 measure use.
+
+**First 10 customers.** English-speaking olim Facebook groups and Russian-speaking Telegram groups. Post: "Which Israeli app do you dread using in Hebrew? I'm making free step-by-step guides in English and Russian. Tell me the task and I'll make that one first."
+
+**Biggest risk and cheapest test.** People use it but will not pay. Test this week: post in two groups, make the 3 most-requested guides as plain PDFs, and count requests and shares.
+
+**WHAT WOULD KILL THIS IDEA?**
+- Hapoalim and the card companies add English and Russian, as Leumi did.
+- Free screenshot translation is good enough for most people.
+- Nobody pays and no organisation sponsors it.
+- App screens change and guides go stale every few months.
+- Publishing screenshots of banking apps raises legal objections; not checked.
+
+### Killed this run
+
+Ad-free bus arrivals (Egg and "אוטובוס קרוב" already serve Moovit leavers), Israeli recurring-charge audit (score 16), delivery compensation claims, taxi fee disputes.
+
+### Strongest quote of the night
+
+"אני צריך לבדוק כמה רחוק האוטובוס, והוא משמיע לי פרסומת, ובסוף אני עומד שם 30 שניות ומחכה שהפרסומות יתנגנו, כשהאוטובוס שלי כבר יוצא." — Di-Staple, Moovit, 2026-10-29, review 14724829521
 
 ---
 
