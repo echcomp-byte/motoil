@@ -205,3 +205,27 @@ New source: the Israeli App Store (`research/scripts/appstore_pull_il.py`). Wind
 - P53 [14640957709] Pango, 2026-10-07, Diego Jota, https://apps.apple.com/il/app/id434818173: "אתם לא יודעים שהם מחייבים אתכם כל חודש וכשרוצים לבטל זה בלתי אפשרי להשיג אותם"
 - P49 [14654430441] Wolt, 2026-10-11, קלארא, https://apps.apple.com/il/app/id943905271: "תשלמו 100 ₪ ויתנו לכם פצוי של 13.7₪"
 - P52 [14693401721] Yad2, 2026-10-21, Y.B16, https://apps.apple.com/il/app/id406318295: "נתנו קדימות לסוחרים לראות את המודעות רכב שעה לפני כל האנשים הפרטיים"
+
+## Run 6 — 2026-11-21 (recurrence check only)
+
+Pulled only reviews dated 2026-11-17 to 2026-11-19 for ten tracked US apps: 96 new low-star reviews. No new categories and no new ideas tonight; the purpose was to test which pitched pains keep arriving.
+
+| Pain | New reviewers since the last check | Result |
+|------|-----------------------------------|--------|
+| P20 pay-per-lead (idea 4, LeadLedger) | 8: Thumbtack 5, Angi 3 | **Seen again: 2 runs.** New details: billing up to 40% over budget, a "~20% minimum lead cost", Angi credits promised and not paid |
+| P39 Paprika subscription | 6 | Seen again: 2 runs (still killed on novelty) |
+| P21 gig deactivation (idea 5) | 3: DoorDash 2, Uber 1 | Seen again: 2 runs |
+| P1 Nextdoor pay-to-reply (idea 1) | 2 | Below the 3-reviewer rule this run; stays at 2 runs |
+| P25 Yelp hides reviews | 1 | No change |
+| P2 Booksy Boost (idea 2) | 0 | No change; nothing new since run 1 |
+| P3 Turo hosts (idea 3) | 0 (feed returned no new reviews) | No change |
+
+Nothing has reached 3 runs yet. P2 and P3 have had no fresh complaint in three checks: weakest evidence among the pitched ideas.
+
+### Verified quotes, run 6 (US App Store)
+
+- P20 [14809031591] Thumbtack for Professionals, 2026-11-19, jmoneyict: "According to customer service they can actually bill you over your budget by up to 40%. At least 30% of the leads I received were unresponsive."
+- P20 [14808625749] Thumbtack for Professionals, 2026-11-19, Vladik I.: "If you request a refund, they have 100 reasons not to give your money back."
+- P20 [14804420043] Angi for Pros, 2026-11-18, M&N services: "They say they will credit you back but they never do."
+- P1 [14808762612] Nextdoor, 2026-11-19, Josiah Miles: "The only ones paying $150 monthly for a business page are big companies that charge an arm and a leg."
+- P39 [14803126194] Paprika Recipe Manager 4, 2026-11-17, Murse Dad: "You sold a lifetime plan then introduced a subscription."

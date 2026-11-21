@@ -27,6 +27,18 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ---
 
+## Run 6 — 2026-11-21 (recurrence check only)
+
+- 96 new low-star reviews dated 2026-11-17 to 2026-11-19 across ten tracked US apps. No new categories, no new ideas.
+- **Pay-per-lead pain keeps arriving:** 8 new reviewers in three days (Thumbtack 5, Angi 3). This is the strongest live signal and backs idea 4 (LeadLedger).
+- Paprika anger continues (6 new), gig deactivation continues (3 new), Nextdoor pay-to-reply slows (2 new).
+- Booksy Boost (idea 2) and Turo hosts (idea 3) have had no fresh complaint since run 1.
+- Ranking of pitched ideas by live evidence: LeadLedger, VouchLink, Reinstate, Olim Screens, Boost Audit, Trip Closeout.
+
+**Strongest quote of the night.** "According to customer service they can actually bill you over your budget by up to 40%. At least 30% of the leads I received were unresponsive." — jmoneyict, Thumbtack for Professionals, 2026-11-19, review 14809031591
+
+---
+
 ## Run 5 — 2026-11-20
 
 ### Scope
