@@ -229,3 +229,11 @@ Nothing has reached 3 runs yet. P2 and P3 have had no fresh complaint in three c
 - P20 [14804420043] Angi for Pros, 2026-11-18, M&N services: "They say they will credit you back but they never do."
 - P1 [14808762612] Nextdoor, 2026-11-19, Josiah Miles: "The only ones paying $150 monthly for a business page are big companies that charge an arm and a leg."
 - P39 [14803126194] Paprika Recipe Manager 4, 2026-11-17, Murse Dad: "You sold a lifetime plan then introduced a subscription."
+
+## Run 7 — 2026-11-22 (recurrence check only)
+
+Pulled reviews dated 2026-11-20 for nine tracked US apps (23 low-star) and 2026-11-19 to 2026-11-20 for eight tracked Israeli apps (10 low-star). One new day of US data only.
+
+- No new reviewer on P20 (pay-per-lead), P1 (Nextdoor pay-to-reply), P2 (Booksy Boost), P21 (deactivation) or P47 (Hebrew-only apps) in this window.
+- P39 Paprika: 1 new. P46 Moovit ads: 3 new (below the count needed to change status; idea stays killed).
+- No status changes. Nothing has reached 3 runs.

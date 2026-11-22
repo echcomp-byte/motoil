@@ -27,6 +27,12 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ---
 
+## Run 7 — 2026-11-22 (recurrence check only)
+
+- One new day of data (2026-11-20): 23 US and 10 Israeli low-star reviews on tracked apps. No new complaint on any pitched pain; Moovit ad complaints continue (3 new). No status changes, no new ideas.
+
+---
+
 ## Run 6 — 2026-11-21 (recurrence check only)
 
 - 96 new low-star reviews dated 2026-11-17 to 2026-11-19 across ten tracked US apps. No new categories, no new ideas.
