@@ -22,6 +22,7 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ## Markets to stop watching
 
+- 2026-11-22: US consumer subscription apps (recipes, calorie and period trackers, video editors, notes). Run 4 found loud paywall complaints in each, and each already has cheaper established rivals, so none opened a gap.
 - 2026-11-18: niche B2B apps with under 5 low reviews a month on the App Store (gym, auto repair, cleaning, real-estate agent tools).
 - 2026-11-16: Hacker News phrase mining for non-developer ideas. 403 comments gave two small clusters and no payment signal.
 
