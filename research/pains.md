@@ -237,3 +237,13 @@ Pulled reviews dated 2026-11-20 for nine tracked US apps (23 low-star) and 2026-
 - No new reviewer on P20 (pay-per-lead), P1 (Nextdoor pay-to-reply), P2 (Booksy Boost), P21 (deactivation) or P47 (Hebrew-only apps) in this window.
 - P39 Paprika: 1 new. P46 Moovit ads: 3 new (below the count needed to change status; idea stays killed).
 - No status changes. Nothing has reached 3 runs.
+
+## Run 8 — 2026-11-23 (recurrence check only)
+
+One new day of data (2026-11-21): 21 US and 2 Israeli low-star reviews on tracked apps.
+
+- P20 pay-per-lead: 2 new Thumbtack reviewers (14817844823, 14816286009), both on instant charges and slow refunds. Below the 3-reviewer rule; stays at 2 runs.
+- P39 Paprika: 1 new. P1, P2, P21, P47: none. P3 Turo: one host complains the app is too slow to upload photos (14817418855), not the claim window.
+- No status changes. Nothing has reached 3 runs.
+
+Verified quote: P20 [14817844823] Thumbtack for Professionals, 2026-11-21, Danilonew: "You get charged in a matter of seconds, even before a deal is finalized—but if you request a refund, don’t hold your breath, because the wait is absurdly long."
