@@ -28,6 +28,12 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ---
 
+## Run 9 — 2026-11-24 (recurrence check only)
+
+- One new day of data (2026-11-22): 5 US and 2 Israeli low-star reviews on tracked apps, none on a tracked pain. No status changes, no new ideas.
+
+---
+
 ## Run 8 — 2026-11-23 (recurrence check only)
 
 - One new day of data (2026-11-21): 21 US and 2 Israeli low-star reviews on tracked apps. Two more Thumbtack lead-charge complaints, one more Paprika; nothing else. No status changes, no new ideas.

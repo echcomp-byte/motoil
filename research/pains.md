@@ -247,3 +247,7 @@ One new day of data (2026-11-21): 21 US and 2 Israeli low-star reviews on tracke
 - No status changes. Nothing has reached 3 runs.
 
 Verified quote: P20 [14817844823] Thumbtack for Professionals, 2026-11-21, Danilonew: "You get charged in a matter of seconds, even before a deal is finalized—but if you request a refund, don’t hold your breath, because the wait is absurdly long."
+
+## Run 9 — 2026-11-24 (recurrence check only)
+
+One new day of data (2026-11-22): 5 US and 2 Israeli low-star reviews on tracked apps. No new reviewer on any pitched or tracked pain. No status changes.
