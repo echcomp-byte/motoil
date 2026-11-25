@@ -28,6 +28,12 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ---
 
+## Run 10 — 2026-11-25 (recurrence check only)
+
+- One new day of data (2026-11-23): 22 US and 2 Israeli low-star reviews on tracked apps. Scattered single complaints (Nextdoor at $109/month, Yelp deleting reviews, Paprika, one Uber deactivation); none reaches 3 new reviewers. No status changes, no new ideas.
+
+---
+
 ## Run 9 — 2026-11-24 (recurrence check only)
 
 - One new day of data (2026-11-22): 5 US and 2 Israeli low-star reviews on tracked apps, none on a tracked pain. No status changes, no new ideas.

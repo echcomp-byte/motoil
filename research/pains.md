@@ -251,3 +251,13 @@ Verified quote: P20 [14817844823] Thumbtack for Professionals, 2026-11-21, Danil
 ## Run 9 — 2026-11-24 (recurrence check only)
 
 One new day of data (2026-11-22): 5 US and 2 Israeli low-star reviews on tracked apps. No new reviewer on any pitched or tracked pain. No status changes.
+
+## Run 10 — 2026-11-25 (recurrence check only)
+
+One new day of data (2026-11-23): 22 US and 2 Israeli low-star reviews on tracked apps.
+
+- P25 Yelp hides reviews: 2 new. P39 Paprika: 2 new, one names the replacement ("Switching to Recime", review 14824491207).
+- P1 Nextdoor pay-to-reply: 1 new, citing $109/month (review 14824814446). P21 deactivation: 1 new (Uber). P20, P2, P47: none.
+- No pain reached 3 new reviewers. No status changes.
+
+Verified quote: P1 [14824814446] Nextdoor, 2026-11-23, Bfagikbfr: "No small business can afford to pay $109 a month just a comment on peoples inquiries and hope to get jobs."
