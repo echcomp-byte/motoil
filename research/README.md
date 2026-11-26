@@ -14,3 +14,5 @@ Reddit, X, G2, Capterra and Trustpilot are not reachable directly; anything from
 Rules: only real complaints with a link; quotes are checked as exact substrings of the pulled data; estimates are labelled.
 
 Recurrence rule: consecutive runs use overlapping 30-day windows, so a pain counts as "seen again" only when at least 3 reviewers post it with dates after the previous run. Check the newest review date in each pull before counting.
+
+`scripts/recurrence_check.py YYYY-MM-DD` pulls only reviews from that date on for the tracked US and Israeli apps and prints the ones that match a tracked pain. Use it for the quick nightly check; use the full pulls for new categories.

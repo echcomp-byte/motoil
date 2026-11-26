@@ -28,6 +28,12 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ---
 
+## Run 11 — 2026-11-26 (recurrence check only)
+
+- One new day of data (2026-11-24): 10 US and 0 Israeli low-star reviews on tracked apps. One more Nextdoor business complaint and one more Thumbtack lead complaint. No status changes, no new ideas.
+
+---
+
 ## Run 10 — 2026-11-25 (recurrence check only)
 
 - One new day of data (2026-11-23): 22 US and 2 Israeli low-star reviews on tracked apps. Scattered single complaints (Nextdoor at $109/month, Yelp deleting reviews, Paprika, one Uber deactivation); none reaches 3 new reviewers. No status changes, no new ideas.

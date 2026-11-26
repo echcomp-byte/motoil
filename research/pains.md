@@ -261,3 +261,10 @@ One new day of data (2026-11-23): 22 US and 2 Israeli low-star reviews on tracke
 - No pain reached 3 new reviewers. No status changes.
 
 Verified quote: P1 [14824814446] Nextdoor, 2026-11-23, Bfagikbfr: "No small business can afford to pay $109 a month just a comment on peoples inquiries and hope to get jobs."
+
+## Run 11 — 2026-11-26 (recurrence check only)
+
+One new day of data (2026-11-24): 10 US and 0 Israeli low-star reviews on tracked apps. Run with the new `research/scripts/recurrence_check.py`.
+
+- P1 Nextdoor: 1 new (review 14828709290: paid $90 for a business account, page removed after 3 days). P20 pay-per-lead: 1 new (14829322059). Others: none.
+- No pain reached 3 new reviewers. No status changes.
