@@ -268,3 +268,7 @@ One new day of data (2026-11-24): 10 US and 0 Israeli low-star reviews on tracke
 
 - P1 Nextdoor: 1 new (review 14828709290: paid $90 for a business account, page removed after 3 days). P20 pay-per-lead: 1 new (14829322059). Others: none.
 - No pain reached 3 new reviewers. No status changes.
+
+## Run 12 — 2026-11-27 (recurrence check only)
+
+One new day of data (2026-11-25): 8 US and 1 Israeli low-star reviews on tracked apps. None matches a tracked pain. The App Store lookup failed for Maccabi and Moovit tonight, so those two were not checked. No status changes.
