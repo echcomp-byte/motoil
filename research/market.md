@@ -28,6 +28,17 @@ Running record. Newest run on top. Ideas listed under "Pitched" must never be pi
 
 ---
 
+## Run 13 — 2026-11-28 (recurrence check only)
+
+- One new day of data (2026-11-26): 19 US and 5 Israeli low-star reviews on tracked apps.
+- **First pain at 3 runs: Paprika's move to a subscription** (3 more reviewers). Three weeks after the update the anger has not faded. The idea stays killed on novelty: rivals with Paprika import already exist.
+- Moovit ad complaints return (3 new, now 2 runs); also killed on novelty.
+- Pay-per-lead: 2 more refund complaints (Thumbtack, Angi). No new ideas.
+
+**Strongest quote of the night.** "I paid for this app. Now it’s free with the features locked behind a monthly membership." — secretgoldfish, Paprika Recipe Manager 4, 2026-11-26, review 14836823669
+
+---
+
 ## Run 12 — 2026-11-27 (recurrence check only)
 
 - One new day of data (2026-11-25): 8 US and 1 Israeli low-star reviews on tracked apps, none on a tracked pain. Maccabi and Moovit lookups failed and were skipped. No status changes, no new ideas.

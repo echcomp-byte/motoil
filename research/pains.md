@@ -272,3 +272,16 @@ One new day of data (2026-11-24): 10 US and 0 Israeli low-star reviews on tracke
 ## Run 12 — 2026-11-27 (recurrence check only)
 
 One new day of data (2026-11-25): 8 US and 1 Israeli low-star reviews on tracked apps. None matches a tracked pain. The App Store lookup failed for Maccabi and Moovit tonight, so those two were not checked. No status changes.
+
+## Run 13 — 2026-11-28 (recurrence check only)
+
+One new day of data (2026-11-26): 19 US and 5 Israeli low-star reviews on tracked apps. The DoorDash lookup failed and was skipped.
+
+- **P39 Paprika subscription: 3 new reviewers (14838562970, 14837143946, 14836823669). Seen again: now 3 runs (runs 4, 6, 13). FLAG: first pain to reach 3 runs.** Status unchanged: killed on novelty, because Mela, Crouton, Recipe Shelf and others already serve leavers; one earlier reviewer named Recime as the replacement.
+- **P46 Moovit ads: 3 new reviewers (14837231914, 14837193811, 14836248401). Seen again: now 2 runs.** Still killed on novelty (Egg, אוטובוס קרוב).
+- P20 pay-per-lead: 2 new (Thumbtack 14838364057, Angi 14837984567), both about refunds never paid. Below the rule; stays at 2 runs.
+- P1, P2, P21, P47: none.
+
+Verified quotes:
+- P39 [14836823669] Paprika Recipe Manager 4, 2026-11-26, secretgoldfish: "I paid for this app. Now it’s free with the features locked behind a monthly membership."
+- P46 [14837231914] Moovit, 2026-11-26, Avrumiel..: "אי אפשר לתפקד עם האפליקציה אם לא משלמים, בלי סוף פרסומות."
